@@ -1,5 +1,5 @@
 {
-  "name": "@device.farm/STM32F0x2",
+  "name": "@device.farm/stm32f0x2",
   "version": "1.0.0",
   "silicon": {
     "target": {
