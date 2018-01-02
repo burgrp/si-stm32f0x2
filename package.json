@@ -1,0 +1,44 @@
+{
+  "name": "@device.farm/STM32F0x2",
+  "version": "1.0.0",
+  "silicon": {
+    "target": {
+      "name": "STM32F0x2",
+      "cpu": "CM0"
+    },
+    "sources": [
+      "generated/CRC.cpp",
+      "generated/GPIO_B_F.cpp",
+      "generated/GPIO_A.cpp",
+      "generated/SPI.cpp",
+      "generated/DAC.cpp",
+      "generated/PWR.cpp",
+      "generated/I2C.cpp",
+      "generated/IWDG.cpp",
+      "generated/WWDG.cpp",
+      "generated/TIM_1.cpp",
+      "generated/TIM_2_3.cpp",
+      "generated/TIM_14.cpp",
+      "generated/TIM_6_7.cpp",
+      "generated/EXTI.cpp",
+      "generated/NVIC.cpp",
+      "generated/DMA.cpp",
+      "generated/RCC.cpp",
+      "generated/SYSCFG.cpp",
+      "generated/ADC.cpp",
+      "generated/USART.cpp",
+      "generated/RTC.cpp",
+      "generated/TIM_15.cpp",
+      "generated/TIM_16_17.cpp",
+      "generated/TSC.cpp",
+      "generated/CEC.cpp",
+      "generated/Flash.cpp",
+      "generated/DBGMCU.cpp",
+      "generated/USB.cpp",
+      "generated/CRS.cpp",
+      "generated/CAN.cpp",
+      "generated/SCB.cpp",
+      "generated/STK.cpp"
+    ]
+  }
+}
