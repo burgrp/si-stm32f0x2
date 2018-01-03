@@ -485,7 +485,5 @@ namespace target {
     };
   }
   
-  extern "C" {
-    scb::Peripheral SCB;
-  }
+  extern scb::Peripheral SCB;
 }

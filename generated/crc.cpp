@@ -177,7 +177,5 @@ namespace target {
     };
   }
   
-  extern "C" {
-    crc::Peripheral CRC;
-  }
+  extern crc::Peripheral CRC;
 }

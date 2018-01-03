@@ -731,7 +731,5 @@ namespace target {
     };
   }
   
-  extern "C" {
-    nvic::Peripheral NVIC;
-  }
+  extern nvic::Peripheral NVIC;
 }

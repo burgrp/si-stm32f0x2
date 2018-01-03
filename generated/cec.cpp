@@ -647,7 +647,5 @@ namespace target {
     };
   }
   
-  extern "C" {
-    cec::Peripheral CEC;
-  }
+  extern cec::Peripheral CEC;
 }

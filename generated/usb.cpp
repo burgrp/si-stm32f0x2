@@ -2056,7 +2056,5 @@ namespace target {
     };
   }
   
-  extern "C" {
-    usb::Peripheral USB;
-  }
+  extern usb::Peripheral USB;
 }

@@ -676,7 +676,5 @@ namespace target {
     };
   }
   
-  extern "C" {
-    syscfg::Peripheral SYSCFG_COMP;
-  }
+  extern syscfg::Peripheral SYSCFG_COMP;
 }

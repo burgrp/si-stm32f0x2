@@ -604,7 +604,5 @@ namespace target {
     };
   }
   
-  extern "C" {
-    flash::Peripheral FLASH;
-  }
+  extern flash::Peripheral FLASH;
 }

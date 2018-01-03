@@ -2151,7 +2151,5 @@ namespace target {
     };
   }
   
-  extern "C" {
-    dma::Peripheral DMA1;
-  }
+  extern dma::Peripheral DMA1;
 }

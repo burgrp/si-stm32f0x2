@@ -1313,8 +1313,6 @@ namespace target {
     };
   }
   
-  extern "C" {
-    i2c::Peripheral I2C1;
-    i2c::Peripheral I2C2;
-  }
+  extern i2c::Peripheral I2C1;
+  extern i2c::Peripheral I2C2;
 }

@@ -605,7 +605,5 @@ namespace target {
     };
   }
   
-  extern "C" {
-    tim_14::Peripheral TIM14;
-  }
+  extern tim_14::Peripheral TIM14;
 }

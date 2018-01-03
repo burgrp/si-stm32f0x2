@@ -345,7 +345,5 @@ namespace target {
     };
   }
   
-  extern "C" {
-    dbgmcu::Peripheral DBGMCU;
-  }
+  extern dbgmcu::Peripheral DBGMCU;
 }

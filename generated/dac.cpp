@@ -582,7 +582,5 @@ namespace target {
     };
   }
   
-  extern "C" {
-    dac::Peripheral DAC;
-  }
+  extern dac::Peripheral DAC;
 }

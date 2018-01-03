@@ -2135,7 +2135,5 @@ namespace target {
     };
   }
   
-  extern "C" {
-    rcc::Peripheral RCC;
-  }
+  extern rcc::Peripheral RCC;
 }

@@ -781,7 +781,5 @@ namespace target {
     };
   }
   
-  extern "C" {
-    adc::Peripheral ADC;
-  }
+  extern adc::Peripheral ADC;
 }

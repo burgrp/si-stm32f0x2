@@ -4115,7 +4115,5 @@ namespace target {
     };
   }
   
-  extern "C" {
-    can::Peripheral CAN;
-  }
+  extern can::Peripheral CAN;
 }

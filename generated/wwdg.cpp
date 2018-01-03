@@ -145,7 +145,5 @@ namespace target {
     };
   }
   
-  extern "C" {
-    wwdg::Peripheral WWDG;
-  }
+  extern wwdg::Peripheral WWDG;
 }

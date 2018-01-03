@@ -213,7 +213,5 @@ namespace target {
     };
   }
   
-  extern "C" {
-    pwr::Peripheral PWR;
-  }
+  extern pwr::Peripheral PWR;
 }

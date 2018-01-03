@@ -411,11 +411,9 @@ namespace target {
     };
   }
   
-  extern "C" {
-    gpio_b_f::Peripheral GPIOF;
-    gpio_b_f::Peripheral GPIOD;
-    gpio_b_f::Peripheral GPIOC;
-    gpio_b_f::Peripheral GPIOB;
-    gpio_b_f::Peripheral GPIOE;
-  }
+  extern gpio_b_f::Peripheral GPIOF;
+  extern gpio_b_f::Peripheral GPIOD;
+  extern gpio_b_f::Peripheral GPIOC;
+  extern gpio_b_f::Peripheral GPIOB;
+  extern gpio_b_f::Peripheral GPIOE;
 }

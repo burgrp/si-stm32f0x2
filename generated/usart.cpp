@@ -1689,10 +1689,8 @@ namespace target {
     };
   }
   
-  extern "C" {
-    usart::Peripheral USART1;
-    usart::Peripheral USART2;
-    usart::Peripheral USART3;
-    usart::Peripheral USART4;
-  }
+  extern usart::Peripheral USART1;
+  extern usart::Peripheral USART2;
+  extern usart::Peripheral USART3;
+  extern usart::Peripheral USART4;
 }

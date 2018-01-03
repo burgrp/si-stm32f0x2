@@ -411,7 +411,5 @@ namespace target {
     };
   }
   
-  extern "C" {
-    gpio_a::Peripheral GPIOA;
-  }
+  extern gpio_a::Peripheral GPIOA;
 }

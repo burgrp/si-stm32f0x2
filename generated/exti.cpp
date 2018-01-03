@@ -211,7 +211,5 @@ namespace target {
     };
   }
   
-  extern "C" {
-    exti::Peripheral EXTI;
-  }
+  extern exti::Peripheral EXTI;
 }

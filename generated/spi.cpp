@@ -897,8 +897,6 @@ namespace target {
     };
   }
   
-  extern "C" {
-    spi::Peripheral SPI1;
-    spi::Peripheral SPI2;
-  }
+  extern spi::Peripheral SPI1;
+  extern spi::Peripheral SPI2;
 }

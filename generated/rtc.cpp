@@ -1668,7 +1668,5 @@ namespace target {
     };
   }
   
-  extern "C" {
-    rtc::Peripheral RTC;
-  }
+  extern rtc::Peripheral RTC;
 }

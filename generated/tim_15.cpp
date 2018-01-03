@@ -1233,7 +1233,5 @@ namespace target {
     };
   }
   
-  extern "C" {
-    tim_15::Peripheral TIM15;
-  }
+  extern tim_15::Peripheral TIM15;
 }

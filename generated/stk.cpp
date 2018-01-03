@@ -205,7 +205,5 @@ namespace target {
     };
   }
   
-  extern "C" {
-    stk::Peripheral STK;
-  }
+  extern stk::Peripheral STK;
 }

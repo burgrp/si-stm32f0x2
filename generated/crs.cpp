@@ -443,7 +443,5 @@ namespace target {
     };
   }
   
-  extern "C" {
-    crs::Peripheral CRS;
-  }
+  extern crs::Peripheral CRS;
 }

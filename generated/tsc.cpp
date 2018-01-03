@@ -1833,7 +1833,5 @@ namespace target {
     };
   }
   
-  extern "C" {
-    tsc::Peripheral TSC;
-  }
+  extern tsc::Peripheral TSC;
 }
