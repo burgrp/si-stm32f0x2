@@ -734,50 +734,77 @@ namespace target {
     };
     class Peripheral {
       public:
-      /**
-        interrupt and status register
-      */
-      volatile reg::ISR ISR;
-      /**
-        interrupt enable register
-      */
-      volatile reg::IER IER;
-      /**
-        control register
-      */
-      volatile reg::CR CR;
-      /**
-        configuration register 1
-      */
-      volatile reg::CFGR1 CFGR1;
-      /**
-        configuration register 2
-      */
-      volatile reg::CFGR2 CFGR2;
-      /**
-        sampling time register
-      */
-      volatile reg::SMPR SMPR;
-      volatile char _space24[8];
-      /**
-        watchdog threshold register
-      */
-      volatile reg::TR TR;
-      volatile char _space36[4];
-      /**
-        channel selection register
-      */
-      volatile reg::CHSELR CHSELR;
-      volatile char _space44[20];
-      /**
-        data register
-      */
-      volatile reg::DR DR;
-      volatile char _space68[708];
-      /**
-        common configuration register
-      */
-      volatile reg::CCR CCR;
+      union {
+        struct {
+          /**
+            interrupt and status register
+          */
+          volatile reg::ISR ISR;
+        };
+        struct {
+          volatile char _space_IER[4];
+          /**
+            interrupt enable register
+          */
+          volatile reg::IER IER;
+        };
+        struct {
+          volatile char _space_CR[8];
+          /**
+            control register
+          */
+          volatile reg::CR CR;
+        };
+        struct {
+          volatile char _space_CFGR1[12];
+          /**
+            configuration register 1
+          */
+          volatile reg::CFGR1 CFGR1;
+        };
+        struct {
+          volatile char _space_CFGR2[16];
+          /**
+            configuration register 2
+          */
+          volatile reg::CFGR2 CFGR2;
+        };
+        struct {
+          volatile char _space_SMPR[20];
+          /**
+            sampling time register
+          */
+          volatile reg::SMPR SMPR;
+        };
+        struct {
+          volatile char _space_TR[32];
+          /**
+            watchdog threshold register
+          */
+          volatile reg::TR TR;
+        };
+        struct {
+          volatile char _space_CHSELR[40];
+          /**
+            channel selection register
+          */
+          volatile reg::CHSELR CHSELR;
+        };
+        struct {
+          volatile char _space_DR[64];
+          /**
+            data register
+          */
+          volatile reg::DR DR;
+        };
+        struct {
+          volatile char _space_CCR[776];
+          /**
+            common configuration register
+          */
+          volatile reg::CCR CCR;
+        };
+      };
     };
   }
   

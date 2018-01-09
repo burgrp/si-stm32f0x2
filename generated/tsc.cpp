@@ -1766,70 +1766,112 @@ namespace target {
     };
     class Peripheral {
       public:
-      /**
-        control register
-      */
-      volatile reg::CR CR;
-      /**
-        interrupt enable register
-      */
-      volatile reg::IER IER;
-      /**
-        interrupt clear register
-      */
-      volatile reg::ICR ICR;
-      /**
-        interrupt status register
-      */
-      volatile reg::ISR ISR;
-      /**
-        I/O hysteresis control register
-      */
-      volatile reg::IOHCR IOHCR;
-      volatile char _space20[4];
-      /**
-        I/O analog switch control register
-      */
-      volatile reg::IOASCR IOASCR;
-      volatile char _space28[4];
-      /**
-        I/O sampling control register
-      */
-      volatile reg::IOSCR IOSCR;
-      volatile char _space36[4];
-      /**
-        I/O channel control register
-      */
-      volatile reg::IOCCR IOCCR;
-      volatile char _space44[4];
-      /**
-        I/O group control status register
-      */
-      volatile reg::IOGCSR IOGCSR;
-      /**
-        I/O group x counter register
-      */
-      volatile reg::IOG1CR IOG1CR;
-      /**
-        I/O group x counter register
-      */
-      volatile reg::IOG2CR IOG2CR;
-      /**
-        I/O group x counter register
-      */
-      volatile reg::IOG3CR IOG3CR;
-      /**
-        I/O group x counter register
-      */
-      volatile reg::IOG4CR IOG4CR;
-      /**
-        I/O group x counter register
-      */
-      volatile reg::IOG5CR IOG5CR;
-      /**
-        I/O group x counter register
-      */
-      volatile reg::IOG6CR IOG6CR;
+      union {
+        struct {
+          /**
+            control register
+          */
+          volatile reg::CR CR;
+        };
+        struct {
+          volatile char _space_IER[4];
+          /**
+            interrupt enable register
+          */
+          volatile reg::IER IER;
+        };
+        struct {
+          volatile char _space_ICR[8];
+          /**
+            interrupt clear register
+          */
+          volatile reg::ICR ICR;
+        };
+        struct {
+          volatile char _space_ISR[12];
+          /**
+            interrupt status register
+          */
+          volatile reg::ISR ISR;
+        };
+        struct {
+          volatile char _space_IOHCR[16];
+          /**
+            I/O hysteresis control register
+          */
+          volatile reg::IOHCR IOHCR;
+        };
+        struct {
+          volatile char _space_IOASCR[24];
+          /**
+            I/O analog switch control register
+          */
+          volatile reg::IOASCR IOASCR;
+        };
+        struct {
+          volatile char _space_IOSCR[32];
+          /**
+            I/O sampling control register
+          */
+          volatile reg::IOSCR IOSCR;
+        };
+        struct {
+          volatile char _space_IOCCR[40];
+          /**
+            I/O channel control register
+          */
+          volatile reg::IOCCR IOCCR;
+        };
+        struct {
+          volatile char _space_IOGCSR[48];
+          /**
+            I/O group control status register
+          */
+          volatile reg::IOGCSR IOGCSR;
+        };
+        struct {
+          volatile char _space_IOG1CR[52];
+          /**
+            I/O group x counter register
+          */
+          volatile reg::IOG1CR IOG1CR;
+        };
+        struct {
+          volatile char _space_IOG2CR[56];
+          /**
+            I/O group x counter register
+          */
+          volatile reg::IOG2CR IOG2CR;
+        };
+        struct {
+          volatile char _space_IOG3CR[60];
+          /**
+            I/O group x counter register
+          */
+          volatile reg::IOG3CR IOG3CR;
+        };
+        struct {
+          volatile char _space_IOG4CR[64];
+          /**
+            I/O group x counter register
+          */
+          volatile reg::IOG4CR IOG4CR;
+        };
+        struct {
+          volatile char _space_IOG5CR[68];
+          /**
+            I/O group x counter register
+          */
+          volatile reg::IOG5CR IOG5CR;
+        };
+        struct {
+          volatile char _space_IOG6CR[72];
+          /**
+            I/O group x counter register
+          */
+          volatile reg::IOG6CR IOG6CR;
+        };
+      };
     };
   }
   

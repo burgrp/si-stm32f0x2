@@ -158,22 +158,35 @@ namespace target {
     };
     class Peripheral {
       public:
-      /**
-        Data register
-      */
-      volatile reg::DR DR;
-      /**
-        Independent data register
-      */
-      volatile reg::IDR IDR;
-      /**
-        Control register
-      */
-      volatile reg::CR CR;
-      /**
-        Initial CRC value
-      */
-      volatile reg::INIT INIT;
+      union {
+        struct {
+          /**
+            Data register
+          */
+          volatile reg::DR DR;
+        };
+        struct {
+          volatile char _space_IDR[4];
+          /**
+            Independent data register
+          */
+          volatile reg::IDR IDR;
+        };
+        struct {
+          volatile char _space_CR[8];
+          /**
+            Control register
+          */
+          volatile reg::CR CR;
+        };
+        struct {
+          volatile char _space_INIT[12];
+          /**
+            Initial CRC value
+          */
+          volatile reg::INIT INIT;
+        };
+      };
     };
   }
   

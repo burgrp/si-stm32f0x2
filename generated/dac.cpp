@@ -520,65 +520,105 @@ namespace target {
     };
     class Peripheral {
       public:
-      /**
-        control register
-      */
-      volatile reg::CR CR;
-      /**
-        software trigger register
-      */
-      volatile reg::SWTRIGR SWTRIGR;
-      /**
-        channel1 12-bit right-aligned data holding register
-      */
-      volatile reg::DHR12R1 DHR12R1;
-      /**
-        channel1 12-bit left aligned data holding register
-      */
-      volatile reg::DHR12L1 DHR12L1;
-      /**
-        channel1 8-bit right aligned data holding register
-      */
-      volatile reg::DHR8R1 DHR8R1;
-      volatile char _space20[24];
-      /**
-        channel1 data output register
-      */
-      volatile reg::DOR1 DOR1;
-      volatile char _space48[4];
-      /**
-        status register
-      */
-      volatile reg::SR SR;
-      /**
-        DAC channel2 12-bit right-aligned data holding register
-      */
-      volatile reg::DHR12R2 DHR12R2;
-      /**
-        DAC channel2 12-bit left-aligned data holding register
-      */
-      volatile reg::DHR12L2 DHR12L2;
-      /**
-        DAC channel2 8-bit right-aligned data holding register
-      */
-      volatile reg::DHR8R2 DHR8R2;
-      /**
-        DHR12RD
-      */
-      volatile reg::DHR12RD DHR12RD;
-      /**
-        Dual DAC 12-bit left-aligned data holding register
-      */
-      volatile reg::DHR12LD DHR12LD;
-      /**
-        Dual DAC 8-bit right-aligned data holding register
-      */
-      volatile reg::DHR8RD DHR8RD;
-      volatile char _space44[4];
-      /**
-        DAC channel2 data output register
-      */
-      volatile reg::DOR2 DOR2;
+      union {
+        struct {
+          /**
+            control register
+          */
+          volatile reg::CR CR;
+        };
+        struct {
+          volatile char _space_SWTRIGR[4];
+          /**
+            software trigger register
+          */
+          volatile reg::SWTRIGR SWTRIGR;
+        };
+        struct {
+          volatile char _space_DHR12R1[8];
+          /**
+            channel1 12-bit right-aligned data holding register
+          */
+          volatile reg::DHR12R1 DHR12R1;
+        };
+        struct {
+          volatile char _space_DHR12L1[12];
+          /**
+            channel1 12-bit left aligned data holding register
+          */
+          volatile reg::DHR12L1 DHR12L1;
+        };
+        struct {
+          volatile char _space_DHR8R1[16];
+          /**
+            channel1 8-bit right aligned data holding register
+          */
+          volatile reg::DHR8R1 DHR8R1;
+        };
+        struct {
+          volatile char _space_DOR1[44];
+          /**
+            channel1 data output register
+          */
+          volatile reg::DOR1 DOR1;
+        };
+        struct {
+          volatile char _space_SR[52];
+          /**
+            status register
+          */
+          volatile reg::SR SR;
+        };
+        struct {
+          volatile char _space_DHR12R2[20];
+          /**
+            DAC channel2 12-bit right-aligned data holding register
+          */
+          volatile reg::DHR12R2 DHR12R2;
+        };
+        struct {
+          volatile char _space_DHR12L2[24];
+          /**
+            DAC channel2 12-bit left-aligned data holding register
+          */
+          volatile reg::DHR12L2 DHR12L2;
+        };
+        struct {
+          volatile char _space_DHR8R2[28];
+          /**
+            DAC channel2 8-bit right-aligned data holding register
+          */
+          volatile reg::DHR8R2 DHR8R2;
+        };
+        struct {
+          volatile char _space_DHR12RD[32];
+          /**
+            DHR12RD
+          */
+          volatile reg::DHR12RD DHR12RD;
+        };
+        struct {
+          volatile char _space_DHR12LD[36];
+          /**
+            Dual DAC 12-bit left-aligned data holding register
+          */
+          volatile reg::DHR12LD DHR12LD;
+        };
+        struct {
+          volatile char _space_DHR8RD[40];
+          /**
+            Dual DAC 8-bit right-aligned data holding register
+          */
+          volatile reg::DHR8RD DHR8RD;
+        };
+        struct {
+          volatile char _space_DOR2[48];
+          /**
+            DAC channel2 data output register
+          */
+          volatile reg::DOR2 DOR2;
+        };
+      };
     };
   }
   

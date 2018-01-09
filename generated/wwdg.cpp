@@ -130,18 +130,28 @@ namespace target {
     };
     class Peripheral {
       public:
-      /**
-        Control register
-      */
-      volatile reg::CR CR;
-      /**
-        Configuration register
-      */
-      volatile reg::CFR CFR;
-      /**
-        Status register
-      */
-      volatile reg::SR SR;
+      union {
+        struct {
+          /**
+            Control register
+          */
+          volatile reg::CR CR;
+        };
+        struct {
+          volatile char _space_CFR[4];
+          /**
+            Configuration register
+          */
+          volatile reg::CFR CFR;
+        };
+        struct {
+          volatile char _space_SR[8];
+          /**
+            Status register
+          */
+          volatile reg::SR SR;
+        };
+      };
     };
   }
   

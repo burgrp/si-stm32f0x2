@@ -326,22 +326,35 @@ namespace target {
     };
     class Peripheral {
       public:
-      /**
-        MCU Device ID Code Register
-      */
-      volatile reg::IDCODE IDCODE;
-      /**
-        Debug MCU Configuration Register
-      */
-      volatile reg::CR CR;
-      /**
-        Debug MCU APB1 freeze register
-      */
-      volatile reg::APB1_FZ APB1_FZ;
-      /**
-        Debug MCU APB2 freeze register
-      */
-      volatile reg::APB2_FZ APB2_FZ;
+      union {
+        struct {
+          /**
+            MCU Device ID Code Register
+          */
+          volatile reg::IDCODE IDCODE;
+        };
+        struct {
+          volatile char _space_CR[4];
+          /**
+            Debug MCU Configuration Register
+          */
+          volatile reg::CR CR;
+        };
+        struct {
+          volatile char _space_APB1_FZ[8];
+          /**
+            Debug MCU APB1 freeze register
+          */
+          volatile reg::APB1_FZ APB1_FZ;
+        };
+        struct {
+          volatile char _space_APB2_FZ[12];
+          /**
+            Debug MCU APB2 freeze register
+          */
+          volatile reg::APB2_FZ APB2_FZ;
+        };
+      };
     };
   }
   

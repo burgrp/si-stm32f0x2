@@ -202,14 +202,21 @@ namespace target {
     };
     class Peripheral {
       public:
-      /**
-        power control register
-      */
-      volatile reg::CR CR;
-      /**
-        power control/status register
-      */
-      volatile reg::CSR CSR;
+      union {
+        struct {
+          /**
+            power control register
+          */
+          volatile reg::CR CR;
+        };
+        struct {
+          volatile char _space_CSR[4];
+          /**
+            power control/status register
+          */
+          volatile reg::CSR CSR;
+        };
+      };
     };
   }
   

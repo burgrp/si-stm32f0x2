@@ -186,22 +186,35 @@ namespace target {
     };
     class Peripheral {
       public:
-      /**
-        SysTick control and status register
-      */
-      volatile reg::CSR CSR;
-      /**
-        SysTick reload value register
-      */
-      volatile reg::RVR RVR;
-      /**
-        SysTick current value register
-      */
-      volatile reg::CVR CVR;
-      /**
-        SysTick calibration value register
-      */
-      volatile reg::CALIB CALIB;
+      union {
+        struct {
+          /**
+            SysTick control and status register
+          */
+          volatile reg::CSR CSR;
+        };
+        struct {
+          volatile char _space_RVR[4];
+          /**
+            SysTick reload value register
+          */
+          volatile reg::RVR RVR;
+        };
+        struct {
+          volatile char _space_CVR[8];
+          /**
+            SysTick current value register
+          */
+          volatile reg::CVR CVR;
+        };
+        struct {
+          volatile char _space_CALIB[12];
+          /**
+            SysTick calibration value register
+          */
+          volatile reg::CALIB CALIB;
+        };
+      };
     };
   }
   

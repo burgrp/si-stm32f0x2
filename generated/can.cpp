@@ -3750,368 +3750,630 @@ namespace target {
     };
     class Peripheral {
       public:
-      /**
-        CAN_MCR
-      */
-      volatile reg::CAN_MCR CAN_MCR;
-      /**
-        CAN_MSR
-      */
-      volatile reg::CAN_MSR CAN_MSR;
-      /**
-        CAN_TSR
-      */
-      volatile reg::CAN_TSR CAN_TSR;
-      /**
-        CAN_RF0R
-      */
-      volatile reg::CAN_RF0R CAN_RF0R;
-      /**
-        CAN_RF1R
-      */
-      volatile reg::CAN_RF1R CAN_RF1R;
-      /**
-        CAN_IER
-      */
-      volatile reg::CAN_IER CAN_IER;
-      /**
-        CAN_ESR
-      */
-      volatile reg::CAN_ESR CAN_ESR;
-      /**
-        CAN BTR
-      */
-      volatile reg::CAN_BTR CAN_BTR;
-      volatile char _space32[352];
-      /**
-        CAN_TI0R
-      */
-      volatile reg::CAN_TI0R CAN_TI0R;
-      /**
-        CAN_TDT0R
-      */
-      volatile reg::CAN_TDT0R CAN_TDT0R;
-      /**
-        CAN_TDL0R
-      */
-      volatile reg::CAN_TDL0R CAN_TDL0R;
-      /**
-        CAN_TDH0R
-      */
-      volatile reg::CAN_TDH0R CAN_TDH0R;
-      /**
-        CAN_TI1R
-      */
-      volatile reg::CAN_TI1R CAN_TI1R;
-      /**
-        CAN_TDT1R
-      */
-      volatile reg::CAN_TDT1R CAN_TDT1R;
-      /**
-        CAN_TDL1R
-      */
-      volatile reg::CAN_TDL1R CAN_TDL1R;
-      /**
-        CAN_TDH1R
-      */
-      volatile reg::CAN_TDH1R CAN_TDH1R;
-      /**
-        CAN_TI2R
-      */
-      volatile reg::CAN_TI2R CAN_TI2R;
-      /**
-        CAN_TDT2R
-      */
-      volatile reg::CAN_TDT2R CAN_TDT2R;
-      /**
-        CAN_TDL2R
-      */
-      volatile reg::CAN_TDL2R CAN_TDL2R;
-      /**
-        CAN_TDH2R
-      */
-      volatile reg::CAN_TDH2R CAN_TDH2R;
-      /**
-        CAN_RI0R
-      */
-      volatile reg::CAN_RI0R CAN_RI0R;
-      /**
-        CAN_RDT0R
-      */
-      volatile reg::CAN_RDT0R CAN_RDT0R;
-      /**
-        CAN_RDL0R
-      */
-      volatile reg::CAN_RDL0R CAN_RDL0R;
-      /**
-        CAN_RDH0R
-      */
-      volatile reg::CAN_RDH0R CAN_RDH0R;
-      /**
-        CAN_RI1R
-      */
-      volatile reg::CAN_RI1R CAN_RI1R;
-      /**
-        CAN_RDT1R
-      */
-      volatile reg::CAN_RDT1R CAN_RDT1R;
-      /**
-        CAN_RDL1R
-      */
-      volatile reg::CAN_RDL1R CAN_RDL1R;
-      /**
-        CAN_RDH1R
-      */
-      volatile reg::CAN_RDH1R CAN_RDH1R;
-      volatile char _space464[48];
-      /**
-        CAN_FMR
-      */
-      volatile reg::CAN_FMR CAN_FMR;
-      /**
-        CAN_FM1R
-      */
-      volatile reg::CAN_FM1R CAN_FM1R;
-      volatile char _space520[4];
-      /**
-        CAN_FS1R
-      */
-      volatile reg::CAN_FS1R CAN_FS1R;
-      volatile char _space528[4];
-      /**
-        CAN_FFA1R
-      */
-      volatile reg::CAN_FFA1R CAN_FFA1R;
-      volatile char _space536[4];
-      /**
-        CAN_FA1R
-      */
-      volatile reg::CAN_FA1R CAN_FA1R;
-      volatile char _space544[32];
-      /**
-        Filter bank 0 register 1
-      */
-      volatile reg::F0R1 F0R1;
-      /**
-        Filter bank 0 register 2
-      */
-      volatile reg::F0R2 F0R2;
-      /**
-        Filter bank 1 register 1
-      */
-      volatile reg::F1R1 F1R1;
-      /**
-        Filter bank 1 register 2
-      */
-      volatile reg::F1R2 F1R2;
-      /**
-        Filter bank 2 register 1
-      */
-      volatile reg::F2R1 F2R1;
-      /**
-        Filter bank 2 register 2
-      */
-      volatile reg::F2R2 F2R2;
-      /**
-        Filter bank 3 register 1
-      */
-      volatile reg::F3R1 F3R1;
-      /**
-        Filter bank 3 register 2
-      */
-      volatile reg::F3R2 F3R2;
-      /**
-        Filter bank 4 register 1
-      */
-      volatile reg::F4R1 F4R1;
-      /**
-        Filter bank 4 register 2
-      */
-      volatile reg::F4R2 F4R2;
-      /**
-        Filter bank 5 register 1
-      */
-      volatile reg::F5R1 F5R1;
-      /**
-        Filter bank 5 register 2
-      */
-      volatile reg::F5R2 F5R2;
-      /**
-        Filter bank 6 register 1
-      */
-      volatile reg::F6R1 F6R1;
-      /**
-        Filter bank 6 register 2
-      */
-      volatile reg::F6R2 F6R2;
-      /**
-        Filter bank 7 register 1
-      */
-      volatile reg::F7R1 F7R1;
-      /**
-        Filter bank 7 register 2
-      */
-      volatile reg::F7R2 F7R2;
-      /**
-        Filter bank 8 register 1
-      */
-      volatile reg::F8R1 F8R1;
-      /**
-        Filter bank 8 register 2
-      */
-      volatile reg::F8R2 F8R2;
-      /**
-        Filter bank 9 register 1
-      */
-      volatile reg::F9R1 F9R1;
-      /**
-        Filter bank 9 register 2
-      */
-      volatile reg::F9R2 F9R2;
-      /**
-        Filter bank 10 register 1
-      */
-      volatile reg::F10R1 F10R1;
-      /**
-        Filter bank 10 register 2
-      */
-      volatile reg::F10R2 F10R2;
-      /**
-        Filter bank 11 register 1
-      */
-      volatile reg::F11R1 F11R1;
-      /**
-        Filter bank 11 register 2
-      */
-      volatile reg::F11R2 F11R2;
-      /**
-        Filter bank 4 register 1
-      */
-      volatile reg::F12R1 F12R1;
-      /**
-        Filter bank 12 register 2
-      */
-      volatile reg::F12R2 F12R2;
-      /**
-        Filter bank 13 register 1
-      */
-      volatile reg::F13R1 F13R1;
-      /**
-        Filter bank 13 register 2
-      */
-      volatile reg::F13R2 F13R2;
-      /**
-        Filter bank 14 register 1
-      */
-      volatile reg::F14R1 F14R1;
-      /**
-        Filter bank 14 register 2
-      */
-      volatile reg::F14R2 F14R2;
-      /**
-        Filter bank 15 register 1
-      */
-      volatile reg::F15R1 F15R1;
-      /**
-        Filter bank 15 register 2
-      */
-      volatile reg::F15R2 F15R2;
-      /**
-        Filter bank 16 register 1
-      */
-      volatile reg::F16R1 F16R1;
-      /**
-        Filter bank 16 register 2
-      */
-      volatile reg::F16R2 F16R2;
-      /**
-        Filter bank 17 register 1
-      */
-      volatile reg::F17R1 F17R1;
-      /**
-        Filter bank 17 register 2
-      */
-      volatile reg::F17R2 F17R2;
-      /**
-        Filter bank 18 register 1
-      */
-      volatile reg::F18R1 F18R1;
-      /**
-        Filter bank 18 register 2
-      */
-      volatile reg::F18R2 F18R2;
-      /**
-        Filter bank 19 register 1
-      */
-      volatile reg::F19R1 F19R1;
-      /**
-        Filter bank 19 register 2
-      */
-      volatile reg::F19R2 F19R2;
-      /**
-        Filter bank 20 register 1
-      */
-      volatile reg::F20R1 F20R1;
-      /**
-        Filter bank 20 register 2
-      */
-      volatile reg::F20R2 F20R2;
-      /**
-        Filter bank 21 register 1
-      */
-      volatile reg::F21R1 F21R1;
-      /**
-        Filter bank 21 register 2
-      */
-      volatile reg::F21R2 F21R2;
-      /**
-        Filter bank 22 register 1
-      */
-      volatile reg::F22R1 F22R1;
-      /**
-        Filter bank 22 register 2
-      */
-      volatile reg::F22R2 F22R2;
-      /**
-        Filter bank 23 register 1
-      */
-      volatile reg::F23R1 F23R1;
-      /**
-        Filter bank 23 register 2
-      */
-      volatile reg::F23R2 F23R2;
-      /**
-        Filter bank 24 register 1
-      */
-      volatile reg::F24R1 F24R1;
-      /**
-        Filter bank 24 register 2
-      */
-      volatile reg::F24R2 F24R2;
-      /**
-        Filter bank 25 register 1
-      */
-      volatile reg::F25R1 F25R1;
-      /**
-        Filter bank 25 register 2
-      */
-      volatile reg::F25R2 F25R2;
-      /**
-        Filter bank 26 register 1
-      */
-      volatile reg::F26R1 F26R1;
-      /**
-        Filter bank 26 register 2
-      */
-      volatile reg::F26R2 F26R2;
-      /**
-        Filter bank 27 register 1
-      */
-      volatile reg::F27R1 F27R1;
-      /**
-        Filter bank 27 register 2
-      */
-      volatile reg::F27R2 F27R2;
+      union {
+        struct {
+          /**
+            CAN_MCR
+          */
+          volatile reg::CAN_MCR CAN_MCR;
+        };
+        struct {
+          volatile char _space_CAN_MSR[4];
+          /**
+            CAN_MSR
+          */
+          volatile reg::CAN_MSR CAN_MSR;
+        };
+        struct {
+          volatile char _space_CAN_TSR[8];
+          /**
+            CAN_TSR
+          */
+          volatile reg::CAN_TSR CAN_TSR;
+        };
+        struct {
+          volatile char _space_CAN_RF0R[12];
+          /**
+            CAN_RF0R
+          */
+          volatile reg::CAN_RF0R CAN_RF0R;
+        };
+        struct {
+          volatile char _space_CAN_RF1R[16];
+          /**
+            CAN_RF1R
+          */
+          volatile reg::CAN_RF1R CAN_RF1R;
+        };
+        struct {
+          volatile char _space_CAN_IER[20];
+          /**
+            CAN_IER
+          */
+          volatile reg::CAN_IER CAN_IER;
+        };
+        struct {
+          volatile char _space_CAN_ESR[24];
+          /**
+            CAN_ESR
+          */
+          volatile reg::CAN_ESR CAN_ESR;
+        };
+        struct {
+          volatile char _space_CAN_BTR[28];
+          /**
+            CAN BTR
+          */
+          volatile reg::CAN_BTR CAN_BTR;
+        };
+        struct {
+          volatile char _space_CAN_TI0R[384];
+          /**
+            CAN_TI0R
+          */
+          volatile reg::CAN_TI0R CAN_TI0R;
+        };
+        struct {
+          volatile char _space_CAN_TDT0R[388];
+          /**
+            CAN_TDT0R
+          */
+          volatile reg::CAN_TDT0R CAN_TDT0R;
+        };
+        struct {
+          volatile char _space_CAN_TDL0R[392];
+          /**
+            CAN_TDL0R
+          */
+          volatile reg::CAN_TDL0R CAN_TDL0R;
+        };
+        struct {
+          volatile char _space_CAN_TDH0R[396];
+          /**
+            CAN_TDH0R
+          */
+          volatile reg::CAN_TDH0R CAN_TDH0R;
+        };
+        struct {
+          volatile char _space_CAN_TI1R[400];
+          /**
+            CAN_TI1R
+          */
+          volatile reg::CAN_TI1R CAN_TI1R;
+        };
+        struct {
+          volatile char _space_CAN_TDT1R[404];
+          /**
+            CAN_TDT1R
+          */
+          volatile reg::CAN_TDT1R CAN_TDT1R;
+        };
+        struct {
+          volatile char _space_CAN_TDL1R[408];
+          /**
+            CAN_TDL1R
+          */
+          volatile reg::CAN_TDL1R CAN_TDL1R;
+        };
+        struct {
+          volatile char _space_CAN_TDH1R[412];
+          /**
+            CAN_TDH1R
+          */
+          volatile reg::CAN_TDH1R CAN_TDH1R;
+        };
+        struct {
+          volatile char _space_CAN_TI2R[416];
+          /**
+            CAN_TI2R
+          */
+          volatile reg::CAN_TI2R CAN_TI2R;
+        };
+        struct {
+          volatile char _space_CAN_TDT2R[420];
+          /**
+            CAN_TDT2R
+          */
+          volatile reg::CAN_TDT2R CAN_TDT2R;
+        };
+        struct {
+          volatile char _space_CAN_TDL2R[424];
+          /**
+            CAN_TDL2R
+          */
+          volatile reg::CAN_TDL2R CAN_TDL2R;
+        };
+        struct {
+          volatile char _space_CAN_TDH2R[428];
+          /**
+            CAN_TDH2R
+          */
+          volatile reg::CAN_TDH2R CAN_TDH2R;
+        };
+        struct {
+          volatile char _space_CAN_RI0R[432];
+          /**
+            CAN_RI0R
+          */
+          volatile reg::CAN_RI0R CAN_RI0R;
+        };
+        struct {
+          volatile char _space_CAN_RDT0R[436];
+          /**
+            CAN_RDT0R
+          */
+          volatile reg::CAN_RDT0R CAN_RDT0R;
+        };
+        struct {
+          volatile char _space_CAN_RDL0R[440];
+          /**
+            CAN_RDL0R
+          */
+          volatile reg::CAN_RDL0R CAN_RDL0R;
+        };
+        struct {
+          volatile char _space_CAN_RDH0R[444];
+          /**
+            CAN_RDH0R
+          */
+          volatile reg::CAN_RDH0R CAN_RDH0R;
+        };
+        struct {
+          volatile char _space_CAN_RI1R[448];
+          /**
+            CAN_RI1R
+          */
+          volatile reg::CAN_RI1R CAN_RI1R;
+        };
+        struct {
+          volatile char _space_CAN_RDT1R[452];
+          /**
+            CAN_RDT1R
+          */
+          volatile reg::CAN_RDT1R CAN_RDT1R;
+        };
+        struct {
+          volatile char _space_CAN_RDL1R[456];
+          /**
+            CAN_RDL1R
+          */
+          volatile reg::CAN_RDL1R CAN_RDL1R;
+        };
+        struct {
+          volatile char _space_CAN_RDH1R[460];
+          /**
+            CAN_RDH1R
+          */
+          volatile reg::CAN_RDH1R CAN_RDH1R;
+        };
+        struct {
+          volatile char _space_CAN_FMR[512];
+          /**
+            CAN_FMR
+          */
+          volatile reg::CAN_FMR CAN_FMR;
+        };
+        struct {
+          volatile char _space_CAN_FM1R[516];
+          /**
+            CAN_FM1R
+          */
+          volatile reg::CAN_FM1R CAN_FM1R;
+        };
+        struct {
+          volatile char _space_CAN_FS1R[524];
+          /**
+            CAN_FS1R
+          */
+          volatile reg::CAN_FS1R CAN_FS1R;
+        };
+        struct {
+          volatile char _space_CAN_FFA1R[532];
+          /**
+            CAN_FFA1R
+          */
+          volatile reg::CAN_FFA1R CAN_FFA1R;
+        };
+        struct {
+          volatile char _space_CAN_FA1R[540];
+          /**
+            CAN_FA1R
+          */
+          volatile reg::CAN_FA1R CAN_FA1R;
+        };
+        struct {
+          volatile char _space_F0R1[576];
+          /**
+            Filter bank 0 register 1
+          */
+          volatile reg::F0R1 F0R1;
+        };
+        struct {
+          volatile char _space_F0R2[580];
+          /**
+            Filter bank 0 register 2
+          */
+          volatile reg::F0R2 F0R2;
+        };
+        struct {
+          volatile char _space_F1R1[584];
+          /**
+            Filter bank 1 register 1
+          */
+          volatile reg::F1R1 F1R1;
+        };
+        struct {
+          volatile char _space_F1R2[588];
+          /**
+            Filter bank 1 register 2
+          */
+          volatile reg::F1R2 F1R2;
+        };
+        struct {
+          volatile char _space_F2R1[592];
+          /**
+            Filter bank 2 register 1
+          */
+          volatile reg::F2R1 F2R1;
+        };
+        struct {
+          volatile char _space_F2R2[596];
+          /**
+            Filter bank 2 register 2
+          */
+          volatile reg::F2R2 F2R2;
+        };
+        struct {
+          volatile char _space_F3R1[600];
+          /**
+            Filter bank 3 register 1
+          */
+          volatile reg::F3R1 F3R1;
+        };
+        struct {
+          volatile char _space_F3R2[604];
+          /**
+            Filter bank 3 register 2
+          */
+          volatile reg::F3R2 F3R2;
+        };
+        struct {
+          volatile char _space_F4R1[608];
+          /**
+            Filter bank 4 register 1
+          */
+          volatile reg::F4R1 F4R1;
+        };
+        struct {
+          volatile char _space_F4R2[612];
+          /**
+            Filter bank 4 register 2
+          */
+          volatile reg::F4R2 F4R2;
+        };
+        struct {
+          volatile char _space_F5R1[616];
+          /**
+            Filter bank 5 register 1
+          */
+          volatile reg::F5R1 F5R1;
+        };
+        struct {
+          volatile char _space_F5R2[620];
+          /**
+            Filter bank 5 register 2
+          */
+          volatile reg::F5R2 F5R2;
+        };
+        struct {
+          volatile char _space_F6R1[624];
+          /**
+            Filter bank 6 register 1
+          */
+          volatile reg::F6R1 F6R1;
+        };
+        struct {
+          volatile char _space_F6R2[628];
+          /**
+            Filter bank 6 register 2
+          */
+          volatile reg::F6R2 F6R2;
+        };
+        struct {
+          volatile char _space_F7R1[632];
+          /**
+            Filter bank 7 register 1
+          */
+          volatile reg::F7R1 F7R1;
+        };
+        struct {
+          volatile char _space_F7R2[636];
+          /**
+            Filter bank 7 register 2
+          */
+          volatile reg::F7R2 F7R2;
+        };
+        struct {
+          volatile char _space_F8R1[640];
+          /**
+            Filter bank 8 register 1
+          */
+          volatile reg::F8R1 F8R1;
+        };
+        struct {
+          volatile char _space_F8R2[644];
+          /**
+            Filter bank 8 register 2
+          */
+          volatile reg::F8R2 F8R2;
+        };
+        struct {
+          volatile char _space_F9R1[648];
+          /**
+            Filter bank 9 register 1
+          */
+          volatile reg::F9R1 F9R1;
+        };
+        struct {
+          volatile char _space_F9R2[652];
+          /**
+            Filter bank 9 register 2
+          */
+          volatile reg::F9R2 F9R2;
+        };
+        struct {
+          volatile char _space_F10R1[656];
+          /**
+            Filter bank 10 register 1
+          */
+          volatile reg::F10R1 F10R1;
+        };
+        struct {
+          volatile char _space_F10R2[660];
+          /**
+            Filter bank 10 register 2
+          */
+          volatile reg::F10R2 F10R2;
+        };
+        struct {
+          volatile char _space_F11R1[664];
+          /**
+            Filter bank 11 register 1
+          */
+          volatile reg::F11R1 F11R1;
+        };
+        struct {
+          volatile char _space_F11R2[668];
+          /**
+            Filter bank 11 register 2
+          */
+          volatile reg::F11R2 F11R2;
+        };
+        struct {
+          volatile char _space_F12R1[672];
+          /**
+            Filter bank 4 register 1
+          */
+          volatile reg::F12R1 F12R1;
+        };
+        struct {
+          volatile char _space_F12R2[676];
+          /**
+            Filter bank 12 register 2
+          */
+          volatile reg::F12R2 F12R2;
+        };
+        struct {
+          volatile char _space_F13R1[680];
+          /**
+            Filter bank 13 register 1
+          */
+          volatile reg::F13R1 F13R1;
+        };
+        struct {
+          volatile char _space_F13R2[684];
+          /**
+            Filter bank 13 register 2
+          */
+          volatile reg::F13R2 F13R2;
+        };
+        struct {
+          volatile char _space_F14R1[688];
+          /**
+            Filter bank 14 register 1
+          */
+          volatile reg::F14R1 F14R1;
+        };
+        struct {
+          volatile char _space_F14R2[692];
+          /**
+            Filter bank 14 register 2
+          */
+          volatile reg::F14R2 F14R2;
+        };
+        struct {
+          volatile char _space_F15R1[696];
+          /**
+            Filter bank 15 register 1
+          */
+          volatile reg::F15R1 F15R1;
+        };
+        struct {
+          volatile char _space_F15R2[700];
+          /**
+            Filter bank 15 register 2
+          */
+          volatile reg::F15R2 F15R2;
+        };
+        struct {
+          volatile char _space_F16R1[704];
+          /**
+            Filter bank 16 register 1
+          */
+          volatile reg::F16R1 F16R1;
+        };
+        struct {
+          volatile char _space_F16R2[708];
+          /**
+            Filter bank 16 register 2
+          */
+          volatile reg::F16R2 F16R2;
+        };
+        struct {
+          volatile char _space_F17R1[712];
+          /**
+            Filter bank 17 register 1
+          */
+          volatile reg::F17R1 F17R1;
+        };
+        struct {
+          volatile char _space_F17R2[716];
+          /**
+            Filter bank 17 register 2
+          */
+          volatile reg::F17R2 F17R2;
+        };
+        struct {
+          volatile char _space_F18R1[720];
+          /**
+            Filter bank 18 register 1
+          */
+          volatile reg::F18R1 F18R1;
+        };
+        struct {
+          volatile char _space_F18R2[724];
+          /**
+            Filter bank 18 register 2
+          */
+          volatile reg::F18R2 F18R2;
+        };
+        struct {
+          volatile char _space_F19R1[728];
+          /**
+            Filter bank 19 register 1
+          */
+          volatile reg::F19R1 F19R1;
+        };
+        struct {
+          volatile char _space_F19R2[732];
+          /**
+            Filter bank 19 register 2
+          */
+          volatile reg::F19R2 F19R2;
+        };
+        struct {
+          volatile char _space_F20R1[736];
+          /**
+            Filter bank 20 register 1
+          */
+          volatile reg::F20R1 F20R1;
+        };
+        struct {
+          volatile char _space_F20R2[740];
+          /**
+            Filter bank 20 register 2
+          */
+          volatile reg::F20R2 F20R2;
+        };
+        struct {
+          volatile char _space_F21R1[744];
+          /**
+            Filter bank 21 register 1
+          */
+          volatile reg::F21R1 F21R1;
+        };
+        struct {
+          volatile char _space_F21R2[748];
+          /**
+            Filter bank 21 register 2
+          */
+          volatile reg::F21R2 F21R2;
+        };
+        struct {
+          volatile char _space_F22R1[752];
+          /**
+            Filter bank 22 register 1
+          */
+          volatile reg::F22R1 F22R1;
+        };
+        struct {
+          volatile char _space_F22R2[756];
+          /**
+            Filter bank 22 register 2
+          */
+          volatile reg::F22R2 F22R2;
+        };
+        struct {
+          volatile char _space_F23R1[760];
+          /**
+            Filter bank 23 register 1
+          */
+          volatile reg::F23R1 F23R1;
+        };
+        struct {
+          volatile char _space_F23R2[764];
+          /**
+            Filter bank 23 register 2
+          */
+          volatile reg::F23R2 F23R2;
+        };
+        struct {
+          volatile char _space_F24R1[768];
+          /**
+            Filter bank 24 register 1
+          */
+          volatile reg::F24R1 F24R1;
+        };
+        struct {
+          volatile char _space_F24R2[772];
+          /**
+            Filter bank 24 register 2
+          */
+          volatile reg::F24R2 F24R2;
+        };
+        struct {
+          volatile char _space_F25R1[776];
+          /**
+            Filter bank 25 register 1
+          */
+          volatile reg::F25R1 F25R1;
+        };
+        struct {
+          volatile char _space_F25R2[780];
+          /**
+            Filter bank 25 register 2
+          */
+          volatile reg::F25R2 F25R2;
+        };
+        struct {
+          volatile char _space_F26R1[784];
+          /**
+            Filter bank 26 register 1
+          */
+          volatile reg::F26R1 F26R1;
+        };
+        struct {
+          volatile char _space_F26R2[788];
+          /**
+            Filter bank 26 register 2
+          */
+          volatile reg::F26R2 F26R2;
+        };
+        struct {
+          volatile char _space_F27R1[792];
+          /**
+            Filter bank 27 register 1
+          */
+          volatile reg::F27R1 F27R1;
+        };
+        struct {
+          volatile char _space_F27R2[796];
+          /**
+            Filter bank 27 register 2
+          */
+          volatile reg::F27R2 F27R2;
+        };
+      };
     };
   }
   

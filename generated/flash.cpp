@@ -568,39 +568,63 @@ namespace target {
     };
     class Peripheral {
       public:
-      /**
-        Flash access control register
-      */
-      volatile reg::ACR ACR;
-      /**
-        Flash key register
-      */
-      volatile reg::KEYR KEYR;
-      /**
-        Flash option key register
-      */
-      volatile reg::OPTKEYR OPTKEYR;
-      /**
-        Flash status register
-      */
-      volatile reg::SR SR;
-      /**
-        Flash control register
-      */
-      volatile reg::CR CR;
-      /**
-        Flash address register
-      */
-      volatile reg::AR AR;
-      volatile char _space24[4];
-      /**
-        Option byte register
-      */
-      volatile reg::OBR OBR;
-      /**
-        Write protection register
-      */
-      volatile reg::WRPR WRPR;
+      union {
+        struct {
+          /**
+            Flash access control register
+          */
+          volatile reg::ACR ACR;
+        };
+        struct {
+          volatile char _space_KEYR[4];
+          /**
+            Flash key register
+          */
+          volatile reg::KEYR KEYR;
+        };
+        struct {
+          volatile char _space_OPTKEYR[8];
+          /**
+            Flash option key register
+          */
+          volatile reg::OPTKEYR OPTKEYR;
+        };
+        struct {
+          volatile char _space_SR[12];
+          /**
+            Flash status register
+          */
+          volatile reg::SR SR;
+        };
+        struct {
+          volatile char _space_CR[16];
+          /**
+            Flash control register
+          */
+          volatile reg::CR CR;
+        };
+        struct {
+          volatile char _space_AR[20];
+          /**
+            Flash address register
+          */
+          volatile reg::AR AR;
+        };
+        struct {
+          volatile char _space_OBR[28];
+          /**
+            Option byte register
+          */
+          volatile reg::OBR OBR;
+        };
+        struct {
+          volatile char _space_WRPR[32];
+          /**
+            Write protection register
+          */
+          volatile reg::WRPR WRPR;
+        };
+      };
     };
   }
   

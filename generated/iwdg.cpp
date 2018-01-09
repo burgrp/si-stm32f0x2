@@ -172,26 +172,42 @@ namespace target {
     };
     class Peripheral {
       public:
-      /**
-        Key register
-      */
-      volatile reg::KR KR;
-      /**
-        Prescaler register
-      */
-      volatile reg::PR PR;
-      /**
-        Reload register
-      */
-      volatile reg::RLR RLR;
-      /**
-        Status register
-      */
-      volatile reg::SR SR;
-      /**
-        Window register
-      */
-      volatile reg::WINR WINR;
+      union {
+        struct {
+          /**
+            Key register
+          */
+          volatile reg::KR KR;
+        };
+        struct {
+          volatile char _space_PR[4];
+          /**
+            Prescaler register
+          */
+          volatile reg::PR PR;
+        };
+        struct {
+          volatile char _space_RLR[8];
+          /**
+            Reload register
+          */
+          volatile reg::RLR RLR;
+        };
+        struct {
+          volatile char _space_SR[12];
+          /**
+            Status register
+          */
+          volatile reg::SR SR;
+        };
+        struct {
+          volatile char _space_WINR[16];
+          /**
+            Window register
+          */
+          volatile reg::WINR WINR;
+        };
+      };
     };
   }
   

@@ -1582,89 +1582,147 @@ namespace target {
     };
     class Peripheral {
       public:
-      /**
-        time register
-      */
-      volatile reg::TR TR;
-      /**
-        date register
-      */
-      volatile reg::DR DR;
-      /**
-        control register
-      */
-      volatile reg::CR CR;
-      /**
-        initialization and status register
-      */
-      volatile reg::ISR ISR;
-      /**
-        prescaler register
-      */
-      volatile reg::PRER PRER;
-      volatile char _space20[8];
-      /**
-        alarm A register
-      */
-      volatile reg::ALRMAR ALRMAR;
-      volatile char _space32[4];
-      /**
-        write protection register
-      */
-      volatile reg::WPR WPR;
-      /**
-        sub second register
-      */
-      volatile reg::SSR SSR;
-      /**
-        shift control register
-      */
-      volatile reg::SHIFTR SHIFTR;
-      /**
-        timestamp time register
-      */
-      volatile reg::TSTR TSTR;
-      /**
-        timestamp date register
-      */
-      volatile reg::TSDR TSDR;
-      /**
-        time-stamp sub second register
-      */
-      volatile reg::TSSSR TSSSR;
-      /**
-        calibration register
-      */
-      volatile reg::CALR CALR;
-      /**
-        tamper and alternate function configuration register
-      */
-      volatile reg::TAFCR TAFCR;
-      /**
-        alarm A sub second register
-      */
-      volatile reg::ALRMASSR ALRMASSR;
-      volatile char _space72[8];
-      /**
-        backup register
-      */
-      volatile reg::BKP0R BKP0R;
-      /**
-        backup register
-      */
-      volatile reg::BKP1R BKP1R;
-      /**
-        backup register
-      */
-      volatile reg::BKP2R BKP2R;
-      /**
-        backup register
-      */
-      volatile reg::BKP3R BKP3R;
-      /**
-        backup register
-      */
-      volatile reg::BKP4R BKP4R;
+      union {
+        struct {
+          /**
+            time register
+          */
+          volatile reg::TR TR;
+        };
+        struct {
+          volatile char _space_DR[4];
+          /**
+            date register
+          */
+          volatile reg::DR DR;
+        };
+        struct {
+          volatile char _space_CR[8];
+          /**
+            control register
+          */
+          volatile reg::CR CR;
+        };
+        struct {
+          volatile char _space_ISR[12];
+          /**
+            initialization and status register
+          */
+          volatile reg::ISR ISR;
+        };
+        struct {
+          volatile char _space_PRER[16];
+          /**
+            prescaler register
+          */
+          volatile reg::PRER PRER;
+        };
+        struct {
+          volatile char _space_ALRMAR[28];
+          /**
+            alarm A register
+          */
+          volatile reg::ALRMAR ALRMAR;
+        };
+        struct {
+          volatile char _space_WPR[36];
+          /**
+            write protection register
+          */
+          volatile reg::WPR WPR;
+        };
+        struct {
+          volatile char _space_SSR[40];
+          /**
+            sub second register
+          */
+          volatile reg::SSR SSR;
+        };
+        struct {
+          volatile char _space_SHIFTR[44];
+          /**
+            shift control register
+          */
+          volatile reg::SHIFTR SHIFTR;
+        };
+        struct {
+          volatile char _space_TSTR[48];
+          /**
+            timestamp time register
+          */
+          volatile reg::TSTR TSTR;
+        };
+        struct {
+          volatile char _space_TSDR[52];
+          /**
+            timestamp date register
+          */
+          volatile reg::TSDR TSDR;
+        };
+        struct {
+          volatile char _space_TSSSR[56];
+          /**
+            time-stamp sub second register
+          */
+          volatile reg::TSSSR TSSSR;
+        };
+        struct {
+          volatile char _space_CALR[60];
+          /**
+            calibration register
+          */
+          volatile reg::CALR CALR;
+        };
+        struct {
+          volatile char _space_TAFCR[64];
+          /**
+            tamper and alternate function configuration register
+          */
+          volatile reg::TAFCR TAFCR;
+        };
+        struct {
+          volatile char _space_ALRMASSR[68];
+          /**
+            alarm A sub second register
+          */
+          volatile reg::ALRMASSR ALRMASSR;
+        };
+        struct {
+          volatile char _space_BKP0R[80];
+          /**
+            backup register
+          */
+          volatile reg::BKP0R BKP0R;
+        };
+        struct {
+          volatile char _space_BKP1R[84];
+          /**
+            backup register
+          */
+          volatile reg::BKP1R BKP1R;
+        };
+        struct {
+          volatile char _space_BKP2R[88];
+          /**
+            backup register
+          */
+          volatile reg::BKP2R BKP2R;
+        };
+        struct {
+          volatile char _space_BKP3R[92];
+          /**
+            backup register
+          */
+          volatile reg::BKP3R BKP3R;
+        };
+        struct {
+          volatile char _space_BKP4R[96];
+          /**
+            backup register
+          */
+          volatile reg::BKP4R BKP4R;
+        };
+      };
     };
   }
   

@@ -1266,50 +1266,84 @@ namespace target {
     };
     class Peripheral {
       public:
-      /**
-        Control register 1
-      */
-      volatile reg::CR1 CR1;
-      /**
-        Control register 2
-      */
-      volatile reg::CR2 CR2;
-      /**
-        Own address register 1
-      */
-      volatile reg::OAR1 OAR1;
-      /**
-        Own address register 2
-      */
-      volatile reg::OAR2 OAR2;
-      /**
-        Timing register
-      */
-      volatile reg::TIMINGR TIMINGR;
-      /**
-        Status register 1
-      */
-      volatile reg::TIMEOUTR TIMEOUTR;
-      /**
-        Interrupt and Status register
-      */
-      volatile reg::ISR ISR;
-      /**
-        Interrupt clear register
-      */
-      volatile reg::ICR ICR;
-      /**
-        PEC register
-      */
-      volatile reg::PECR PECR;
-      /**
-        Receive data register
-      */
-      volatile reg::RXDR RXDR;
-      /**
-        Transmit data register
-      */
-      volatile reg::TXDR TXDR;
+      union {
+        struct {
+          /**
+            Control register 1
+          */
+          volatile reg::CR1 CR1;
+        };
+        struct {
+          volatile char _space_CR2[4];
+          /**
+            Control register 2
+          */
+          volatile reg::CR2 CR2;
+        };
+        struct {
+          volatile char _space_OAR1[8];
+          /**
+            Own address register 1
+          */
+          volatile reg::OAR1 OAR1;
+        };
+        struct {
+          volatile char _space_OAR2[12];
+          /**
+            Own address register 2
+          */
+          volatile reg::OAR2 OAR2;
+        };
+        struct {
+          volatile char _space_TIMINGR[16];
+          /**
+            Timing register
+          */
+          volatile reg::TIMINGR TIMINGR;
+        };
+        struct {
+          volatile char _space_TIMEOUTR[20];
+          /**
+            Status register 1
+          */
+          volatile reg::TIMEOUTR TIMEOUTR;
+        };
+        struct {
+          volatile char _space_ISR[24];
+          /**
+            Interrupt and Status register
+          */
+          volatile reg::ISR ISR;
+        };
+        struct {
+          volatile char _space_ICR[28];
+          /**
+            Interrupt clear register
+          */
+          volatile reg::ICR ICR;
+        };
+        struct {
+          volatile char _space_PECR[32];
+          /**
+            PEC register
+          */
+          volatile reg::PECR PECR;
+        };
+        struct {
+          volatile char _space_RXDR[36];
+          /**
+            Receive data register
+          */
+          volatile reg::RXDR RXDR;
+        };
+        struct {
+          volatile char _space_TXDR[40];
+          /**
+            Transmit data register
+          */
+          volatile reg::TXDR TXDR;
+        };
+      };
     };
   }
   

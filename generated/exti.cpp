@@ -184,30 +184,49 @@ namespace target {
     };
     class Peripheral {
       public:
-      /**
-        Interrupt mask register (EXTI_IMR)
-      */
-      volatile reg::IMR IMR;
-      /**
-        Event mask register (EXTI_EMR)
-      */
-      volatile reg::EMR EMR;
-      /**
-        Rising Trigger selection register (EXTI_RTSR)
-      */
-      volatile reg::RTSR RTSR;
-      /**
-        Falling Trigger selection register (EXTI_FTSR)
-      */
-      volatile reg::FTSR FTSR;
-      /**
-        Software interrupt event register (EXTI_SWIER)
-      */
-      volatile reg::SWIER SWIER;
-      /**
-        Pending register (EXTI_PR)
-      */
-      volatile reg::PR PR;
+      union {
+        struct {
+          /**
+            Interrupt mask register (EXTI_IMR)
+          */
+          volatile reg::IMR IMR;
+        };
+        struct {
+          volatile char _space_EMR[4];
+          /**
+            Event mask register (EXTI_EMR)
+          */
+          volatile reg::EMR EMR;
+        };
+        struct {
+          volatile char _space_RTSR[8];
+          /**
+            Rising Trigger selection register (EXTI_RTSR)
+          */
+          volatile reg::RTSR RTSR;
+        };
+        struct {
+          volatile char _space_FTSR[12];
+          /**
+            Falling Trigger selection register (EXTI_FTSR)
+          */
+          volatile reg::FTSR FTSR;
+        };
+        struct {
+          volatile char _space_SWIER[16];
+          /**
+            Software interrupt event register (EXTI_SWIER)
+          */
+          volatile reg::SWIER SWIER;
+        };
+        struct {
+          volatile char _space_PR[20];
+          /**
+            Pending register (EXTI_PR)
+          */
+          volatile reg::PR PR;
+        };
+      };
     };
   }
   

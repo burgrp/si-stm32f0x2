@@ -550,58 +550,91 @@ namespace target {
     };
     class Peripheral {
       public:
-      /**
-        control register 1
-      */
-      volatile reg::CR1 CR1;
-      volatile char _space4[8];
-      /**
-        DMA/Interrupt enable register
-      */
-      volatile reg::DIER DIER;
-      /**
-        status register
-      */
-      volatile reg::SR SR;
-      /**
-        event generation register
-      */
-      volatile reg::EGR EGR;
-      /**
-        capture/compare mode register (output mode)
-      */
-      volatile reg::CCMR1_Output CCMR1_Output;
-      /**
-        capture/compare mode register (input mode)
-      */
-      volatile reg::CCMR1_Input CCMR1_Input;
-      volatile char _space28[4];
-      /**
-        capture/compare enable register
-      */
-      volatile reg::CCER CCER;
-      /**
-        counter
-      */
-      volatile reg::CNT CNT;
-      /**
-        prescaler
-      */
-      volatile reg::PSC PSC;
-      /**
-        auto-reload register
-      */
-      volatile reg::ARR ARR;
-      volatile char _space48[4];
-      /**
-        capture/compare register 1
-      */
-      volatile reg::CCR1 CCR1;
-      volatile char _space56[24];
-      /**
-        option register
-      */
-      volatile reg::OR OR;
+      union {
+        struct {
+          /**
+            control register 1
+          */
+          volatile reg::CR1 CR1;
+        };
+        struct {
+          volatile char _space_DIER[12];
+          /**
+            DMA/Interrupt enable register
+          */
+          volatile reg::DIER DIER;
+        };
+        struct {
+          volatile char _space_SR[16];
+          /**
+            status register
+          */
+          volatile reg::SR SR;
+        };
+        struct {
+          volatile char _space_EGR[20];
+          /**
+            event generation register
+          */
+          volatile reg::EGR EGR;
+        };
+        struct {
+          volatile char _space_CCMR1_Output[24];
+          /**
+            capture/compare mode register (output mode)
+          */
+          volatile reg::CCMR1_Output CCMR1_Output;
+        };
+        struct {
+          volatile char _space_CCMR1_Input[24];
+          /**
+            capture/compare mode register (input mode)
+          */
+          volatile reg::CCMR1_Input CCMR1_Input;
+        };
+        struct {
+          volatile char _space_CCER[32];
+          /**
+            capture/compare enable register
+          */
+          volatile reg::CCER CCER;
+        };
+        struct {
+          volatile char _space_CNT[36];
+          /**
+            counter
+          */
+          volatile reg::CNT CNT;
+        };
+        struct {
+          volatile char _space_PSC[40];
+          /**
+            prescaler
+          */
+          volatile reg::PSC PSC;
+        };
+        struct {
+          volatile char _space_ARR[44];
+          /**
+            auto-reload register
+          */
+          volatile reg::ARR ARR;
+        };
+        struct {
+          volatile char _space_CCR1[52];
+          /**
+            capture/compare register 1
+          */
+          volatile reg::CCR1 CCR1;
+        };
+        struct {
+          volatile char _space_OR[80];
+          /**
+            option register
+          */
+          volatile reg::OR OR;
+        };
+      };
     };
   }
   

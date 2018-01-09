@@ -364,50 +364,84 @@ namespace target {
     };
     class Peripheral {
       public:
-      /**
-        GPIO port mode register
-      */
-      volatile reg::MODER MODER;
-      /**
-        GPIO port output type register
-      */
-      volatile reg::OTYPER OTYPER;
-      /**
-        GPIO port output speed register
-      */
-      volatile reg::OSPEEDR OSPEEDR;
-      /**
-        GPIO port pull-up/pull-down register
-      */
-      volatile reg::PUPDR PUPDR;
-      /**
-        GPIO port input data register
-      */
-      volatile reg::IDR IDR;
-      /**
-        GPIO port output data register
-      */
-      volatile reg::ODR ODR;
-      /**
-        GPIO port bit set/reset register
-      */
-      volatile reg::BSRR BSRR;
-      /**
-        GPIO port configuration lock register
-      */
-      volatile reg::LCKR LCKR;
-      /**
-        GPIO alternate function low register
-      */
-      volatile reg::AFRL AFRL;
-      /**
-        GPIO alternate function high register
-      */
-      volatile reg::AFRH AFRH;
-      /**
-        Port bit reset register
-      */
-      volatile reg::BRR BRR;
+      union {
+        struct {
+          /**
+            GPIO port mode register
+          */
+          volatile reg::MODER MODER;
+        };
+        struct {
+          volatile char _space_OTYPER[4];
+          /**
+            GPIO port output type register
+          */
+          volatile reg::OTYPER OTYPER;
+        };
+        struct {
+          volatile char _space_OSPEEDR[8];
+          /**
+            GPIO port output speed register
+          */
+          volatile reg::OSPEEDR OSPEEDR;
+        };
+        struct {
+          volatile char _space_PUPDR[12];
+          /**
+            GPIO port pull-up/pull-down register
+          */
+          volatile reg::PUPDR PUPDR;
+        };
+        struct {
+          volatile char _space_IDR[16];
+          /**
+            GPIO port input data register
+          */
+          volatile reg::IDR IDR;
+        };
+        struct {
+          volatile char _space_ODR[20];
+          /**
+            GPIO port output data register
+          */
+          volatile reg::ODR ODR;
+        };
+        struct {
+          volatile char _space_BSRR[24];
+          /**
+            GPIO port bit set/reset register
+          */
+          volatile reg::BSRR BSRR;
+        };
+        struct {
+          volatile char _space_LCKR[28];
+          /**
+            GPIO port configuration lock register
+          */
+          volatile reg::LCKR LCKR;
+        };
+        struct {
+          volatile char _space_AFRL[32];
+          /**
+            GPIO alternate function low register
+          */
+          volatile reg::AFRL AFRL;
+        };
+        struct {
+          volatile char _space_AFRH[36];
+          /**
+            GPIO alternate function high register
+          */
+          volatile reg::AFRH AFRH;
+        };
+        struct {
+          volatile char _space_BRR[40];
+          /**
+            Port bit reset register
+          */
+          volatile reg::BRR BRR;
+        };
+      };
     };
   }
   

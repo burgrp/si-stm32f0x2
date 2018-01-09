@@ -1992,67 +1992,112 @@ namespace target {
     };
     class Peripheral {
       public:
-      /**
-        endpoint 0 register
-      */
-      volatile reg::EP0R EP0R;
-      /**
-        endpoint 1 register
-      */
-      volatile reg::EP1R EP1R;
-      /**
-        endpoint 2 register
-      */
-      volatile reg::EP2R EP2R;
-      /**
-        endpoint 3 register
-      */
-      volatile reg::EP3R EP3R;
-      /**
-        endpoint 4 register
-      */
-      volatile reg::EP4R EP4R;
-      /**
-        endpoint 5 register
-      */
-      volatile reg::EP5R EP5R;
-      /**
-        endpoint 6 register
-      */
-      volatile reg::EP6R EP6R;
-      /**
-        endpoint 7 register
-      */
-      volatile reg::EP7R EP7R;
-      volatile char _space32[32];
-      /**
-        control register
-      */
-      volatile reg::CNTR CNTR;
-      /**
-        interrupt status register
-      */
-      volatile reg::ISTR ISTR;
-      /**
-        frame number register
-      */
-      volatile reg::FNR FNR;
-      /**
-        device address
-      */
-      volatile reg::DADDR DADDR;
-      /**
-        Buffer table address
-      */
-      volatile reg::BTABLE BTABLE;
-      /**
-        LPM control and status register
-      */
-      volatile reg::LPMCSR LPMCSR;
-      /**
-        Battery charging detector
-      */
-      volatile reg::BCDR BCDR;
+      union {
+        struct {
+          /**
+            endpoint 0 register
+          */
+          volatile reg::EP0R EP0R;
+        };
+        struct {
+          volatile char _space_EP1R[4];
+          /**
+            endpoint 1 register
+          */
+          volatile reg::EP1R EP1R;
+        };
+        struct {
+          volatile char _space_EP2R[8];
+          /**
+            endpoint 2 register
+          */
+          volatile reg::EP2R EP2R;
+        };
+        struct {
+          volatile char _space_EP3R[12];
+          /**
+            endpoint 3 register
+          */
+          volatile reg::EP3R EP3R;
+        };
+        struct {
+          volatile char _space_EP4R[16];
+          /**
+            endpoint 4 register
+          */
+          volatile reg::EP4R EP4R;
+        };
+        struct {
+          volatile char _space_EP5R[20];
+          /**
+            endpoint 5 register
+          */
+          volatile reg::EP5R EP5R;
+        };
+        struct {
+          volatile char _space_EP6R[24];
+          /**
+            endpoint 6 register
+          */
+          volatile reg::EP6R EP6R;
+        };
+        struct {
+          volatile char _space_EP7R[28];
+          /**
+            endpoint 7 register
+          */
+          volatile reg::EP7R EP7R;
+        };
+        struct {
+          volatile char _space_CNTR[64];
+          /**
+            control register
+          */
+          volatile reg::CNTR CNTR;
+        };
+        struct {
+          volatile char _space_ISTR[68];
+          /**
+            interrupt status register
+          */
+          volatile reg::ISTR ISTR;
+        };
+        struct {
+          volatile char _space_FNR[72];
+          /**
+            frame number register
+          */
+          volatile reg::FNR FNR;
+        };
+        struct {
+          volatile char _space_DADDR[76];
+          /**
+            device address
+          */
+          volatile reg::DADDR DADDR;
+        };
+        struct {
+          volatile char _space_BTABLE[80];
+          /**
+            Buffer table address
+          */
+          volatile reg::BTABLE BTABLE;
+        };
+        struct {
+          volatile char _space_LPMCSR[84];
+          /**
+            LPM control and status register
+          */
+          volatile reg::LPMCSR LPMCSR;
+        };
+        struct {
+          volatile char _space_BCDR[88];
+          /**
+            Battery charging detector
+          */
+          volatile reg::BCDR BCDR;
+        };
+      };
     };
   }
   

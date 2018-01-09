@@ -858,42 +858,70 @@ namespace target {
     };
     class Peripheral {
       public:
-      /**
-        control register 1
-      */
-      volatile reg::CR1 CR1;
-      /**
-        control register 2
-      */
-      volatile reg::CR2 CR2;
-      /**
-        status register
-      */
-      volatile reg::SR SR;
-      /**
-        data register
-      */
-      volatile reg::DR DR;
-      /**
-        CRC polynomial register
-      */
-      volatile reg::CRCPR CRCPR;
-      /**
-        RX CRC register
-      */
-      volatile reg::RXCRCR RXCRCR;
-      /**
-        TX CRC register
-      */
-      volatile reg::TXCRCR TXCRCR;
-      /**
-        I2S configuration register
-      */
-      volatile reg::I2SCFGR I2SCFGR;
-      /**
-        I2S prescaler register
-      */
-      volatile reg::I2SPR I2SPR;
+      union {
+        struct {
+          /**
+            control register 1
+          */
+          volatile reg::CR1 CR1;
+        };
+        struct {
+          volatile char _space_CR2[4];
+          /**
+            control register 2
+          */
+          volatile reg::CR2 CR2;
+        };
+        struct {
+          volatile char _space_SR[8];
+          /**
+            status register
+          */
+          volatile reg::SR SR;
+        };
+        struct {
+          volatile char _space_DR[12];
+          /**
+            data register
+          */
+          volatile reg::DR DR;
+        };
+        struct {
+          volatile char _space_CRCPR[16];
+          /**
+            CRC polynomial register
+          */
+          volatile reg::CRCPR CRCPR;
+        };
+        struct {
+          volatile char _space_RXCRCR[20];
+          /**
+            RX CRC register
+          */
+          volatile reg::RXCRCR RXCRCR;
+        };
+        struct {
+          volatile char _space_TXCRCR[24];
+          /**
+            TX CRC register
+          */
+          volatile reg::TXCRCR TXCRCR;
+        };
+        struct {
+          volatile char _space_I2SCFGR[28];
+          /**
+            I2S configuration register
+          */
+          volatile reg::I2SCFGR I2SCFGR;
+        };
+        struct {
+          volatile char _space_I2SPR[32];
+          /**
+            I2S prescaler register
+          */
+          volatile reg::I2SPR I2SPR;
+        };
+      };
     };
   }
   

@@ -424,22 +424,35 @@ namespace target {
     };
     class Peripheral {
       public:
-      /**
-        control register
-      */
-      volatile reg::CR CR;
-      /**
-        configuration register
-      */
-      volatile reg::CFGR CFGR;
-      /**
-        interrupt and status register
-      */
-      volatile reg::ISR ISR;
-      /**
-        interrupt flag clear register
-      */
-      volatile reg::ICR ICR;
+      union {
+        struct {
+          /**
+            control register
+          */
+          volatile reg::CR CR;
+        };
+        struct {
+          volatile char _space_CFGR[4];
+          /**
+            configuration register
+          */
+          volatile reg::CFGR CFGR;
+        };
+        struct {
+          volatile char _space_ISR[8];
+          /**
+            interrupt and status register
+          */
+          volatile reg::ISR ISR;
+        };
+        struct {
+          volatile char _space_ICR[12];
+          /**
+            interrupt flag clear register
+          */
+          volatile reg::ICR ICR;
+        };
+      };
     };
   }
   

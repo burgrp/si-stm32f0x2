@@ -298,40 +298,63 @@ namespace target {
     };
     class Peripheral {
       public:
-      /**
-        control register 1
-      */
-      volatile reg::CR1 CR1;
-      /**
-        control register 2
-      */
-      volatile reg::CR2 CR2;
-      volatile char _space8[4];
-      /**
-        DMA/Interrupt enable register
-      */
-      volatile reg::DIER DIER;
-      /**
-        status register
-      */
-      volatile reg::SR SR;
-      /**
-        event generation register
-      */
-      volatile reg::EGR EGR;
-      volatile char _space24[12];
-      /**
-        counter
-      */
-      volatile reg::CNT CNT;
-      /**
-        prescaler
-      */
-      volatile reg::PSC PSC;
-      /**
-        auto-reload register
-      */
-      volatile reg::ARR ARR;
+      union {
+        struct {
+          /**
+            control register 1
+          */
+          volatile reg::CR1 CR1;
+        };
+        struct {
+          volatile char _space_CR2[4];
+          /**
+            control register 2
+          */
+          volatile reg::CR2 CR2;
+        };
+        struct {
+          volatile char _space_DIER[12];
+          /**
+            DMA/Interrupt enable register
+          */
+          volatile reg::DIER DIER;
+        };
+        struct {
+          volatile char _space_SR[16];
+          /**
+            status register
+          */
+          volatile reg::SR SR;
+        };
+        struct {
+          volatile char _space_EGR[20];
+          /**
+            event generation register
+          */
+          volatile reg::EGR EGR;
+        };
+        struct {
+          volatile char _space_CNT[36];
+          /**
+            counter
+          */
+          volatile reg::CNT CNT;
+        };
+        struct {
+          volatile char _space_PSC[40];
+          /**
+            prescaler
+          */
+          volatile reg::PSC PSC;
+        };
+        struct {
+          volatile char _space_ARR[44];
+          /**
+            auto-reload register
+          */
+          volatile reg::ARR ARR;
+        };
+      };
     };
   }
   

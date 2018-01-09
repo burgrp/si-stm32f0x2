@@ -1642,50 +1642,84 @@ namespace target {
     };
     class Peripheral {
       public:
-      /**
-        Control register 1
-      */
-      volatile reg::CR1 CR1;
-      /**
-        Control register 2
-      */
-      volatile reg::CR2 CR2;
-      /**
-        Control register 3
-      */
-      volatile reg::CR3 CR3;
-      /**
-        Baud rate register
-      */
-      volatile reg::BRR BRR;
-      /**
-        Guard time and prescaler register
-      */
-      volatile reg::GTPR GTPR;
-      /**
-        Receiver timeout register
-      */
-      volatile reg::RTOR RTOR;
-      /**
-        Request register
-      */
-      volatile reg::RQR RQR;
-      /**
-        Interrupt & status register
-      */
-      volatile reg::ISR ISR;
-      /**
-        Interrupt flag clear register
-      */
-      volatile reg::ICR ICR;
-      /**
-        Receive data register
-      */
-      volatile reg::RDR RDR;
-      /**
-        Transmit data register
-      */
-      volatile reg::TDR TDR;
+      union {
+        struct {
+          /**
+            Control register 1
+          */
+          volatile reg::CR1 CR1;
+        };
+        struct {
+          volatile char _space_CR2[4];
+          /**
+            Control register 2
+          */
+          volatile reg::CR2 CR2;
+        };
+        struct {
+          volatile char _space_CR3[8];
+          /**
+            Control register 3
+          */
+          volatile reg::CR3 CR3;
+        };
+        struct {
+          volatile char _space_BRR[12];
+          /**
+            Baud rate register
+          */
+          volatile reg::BRR BRR;
+        };
+        struct {
+          volatile char _space_GTPR[16];
+          /**
+            Guard time and prescaler register
+          */
+          volatile reg::GTPR GTPR;
+        };
+        struct {
+          volatile char _space_RTOR[20];
+          /**
+            Receiver timeout register
+          */
+          volatile reg::RTOR RTOR;
+        };
+        struct {
+          volatile char _space_RQR[24];
+          /**
+            Request register
+          */
+          volatile reg::RQR RQR;
+        };
+        struct {
+          volatile char _space_ISR[28];
+          /**
+            Interrupt & status register
+          */
+          volatile reg::ISR ISR;
+        };
+        struct {
+          volatile char _space_ICR[32];
+          /**
+            Interrupt flag clear register
+          */
+          volatile reg::ICR ICR;
+        };
+        struct {
+          volatile char _space_RDR[36];
+          /**
+            Receive data register
+          */
+          volatile reg::RDR RDR;
+        };
+        struct {
+          volatile char _space_TDR[40];
+          /**
+            Transmit data register
+          */
+          volatile reg::TDR TDR;
+        };
+      };
     };
   }
   

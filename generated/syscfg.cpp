@@ -644,35 +644,56 @@ namespace target {
     };
     class Peripheral {
       public:
-      /**
-        configuration register 1
-      */
-      volatile reg::SYSCFG_CFGR1 SYSCFG_CFGR1;
-      volatile char _space4[4];
-      /**
-        external interrupt configuration register 1
-      */
-      volatile reg::SYSCFG_EXTICR1 SYSCFG_EXTICR1;
-      /**
-        external interrupt configuration register 2
-      */
-      volatile reg::SYSCFG_EXTICR2 SYSCFG_EXTICR2;
-      /**
-        external interrupt configuration register 3
-      */
-      volatile reg::SYSCFG_EXTICR3 SYSCFG_EXTICR3;
-      /**
-        external interrupt configuration register 4
-      */
-      volatile reg::SYSCFG_EXTICR4 SYSCFG_EXTICR4;
-      /**
-        configuration register 2
-      */
-      volatile reg::SYSCFG_CFGR2 SYSCFG_CFGR2;
-      /**
-        control and status register
-      */
-      volatile reg::COMP_CSR COMP_CSR;
+      union {
+        struct {
+          /**
+            configuration register 1
+          */
+          volatile reg::SYSCFG_CFGR1 SYSCFG_CFGR1;
+        };
+        struct {
+          volatile char _space_SYSCFG_EXTICR1[8];
+          /**
+            external interrupt configuration register 1
+          */
+          volatile reg::SYSCFG_EXTICR1 SYSCFG_EXTICR1;
+        };
+        struct {
+          volatile char _space_SYSCFG_EXTICR2[12];
+          /**
+            external interrupt configuration register 2
+          */
+          volatile reg::SYSCFG_EXTICR2 SYSCFG_EXTICR2;
+        };
+        struct {
+          volatile char _space_SYSCFG_EXTICR3[16];
+          /**
+            external interrupt configuration register 3
+          */
+          volatile reg::SYSCFG_EXTICR3 SYSCFG_EXTICR3;
+        };
+        struct {
+          volatile char _space_SYSCFG_EXTICR4[20];
+          /**
+            external interrupt configuration register 4
+          */
+          volatile reg::SYSCFG_EXTICR4 SYSCFG_EXTICR4;
+        };
+        struct {
+          volatile char _space_SYSCFG_CFGR2[24];
+          /**
+            configuration register 2
+          */
+          volatile reg::SYSCFG_CFGR2 SYSCFG_CFGR2;
+        };
+        struct {
+          volatile char _space_COMP_CSR[28];
+          /**
+            control and status register
+          */
+          volatile reg::COMP_CSR COMP_CSR;
+        };
+      };
     };
   }
   

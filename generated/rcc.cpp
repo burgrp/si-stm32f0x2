@@ -2076,62 +2076,105 @@ namespace target {
     };
     class Peripheral {
       public:
-      /**
-        Clock control register
-      */
-      volatile reg::CR CR;
-      /**
-        Clock configuration register (RCC_CFGR)
-      */
-      volatile reg::CFGR CFGR;
-      /**
-        Clock interrupt register (RCC_CIR)
-      */
-      volatile reg::CIR CIR;
-      /**
-        APB2 peripheral reset register (RCC_APB2RSTR)
-      */
-      volatile reg::APB2RSTR APB2RSTR;
-      /**
-        APB1 peripheral reset register (RCC_APB1RSTR)
-      */
-      volatile reg::APB1RSTR APB1RSTR;
-      /**
-        AHB Peripheral Clock enable register (RCC_AHBENR)
-      */
-      volatile reg::AHBENR AHBENR;
-      /**
-        APB2 peripheral clock enable register (RCC_APB2ENR)
-      */
-      volatile reg::APB2ENR APB2ENR;
-      /**
-        APB1 peripheral clock enable register (RCC_APB1ENR)
-      */
-      volatile reg::APB1ENR APB1ENR;
-      /**
-        Backup domain control register (RCC_BDCR)
-      */
-      volatile reg::BDCR BDCR;
-      /**
-        Control/status register (RCC_CSR)
-      */
-      volatile reg::CSR CSR;
-      /**
-        AHB peripheral reset register
-      */
-      volatile reg::AHBRSTR AHBRSTR;
-      /**
-        Clock configuration register 2
-      */
-      volatile reg::CFGR2 CFGR2;
-      /**
-        Clock configuration register 3
-      */
-      volatile reg::CFGR3 CFGR3;
-      /**
-        Clock control register 2
-      */
-      volatile reg::CR2 CR2;
+      union {
+        struct {
+          /**
+            Clock control register
+          */
+          volatile reg::CR CR;
+        };
+        struct {
+          volatile char _space_CFGR[4];
+          /**
+            Clock configuration register (RCC_CFGR)
+          */
+          volatile reg::CFGR CFGR;
+        };
+        struct {
+          volatile char _space_CIR[8];
+          /**
+            Clock interrupt register (RCC_CIR)
+          */
+          volatile reg::CIR CIR;
+        };
+        struct {
+          volatile char _space_APB2RSTR[12];
+          /**
+            APB2 peripheral reset register (RCC_APB2RSTR)
+          */
+          volatile reg::APB2RSTR APB2RSTR;
+        };
+        struct {
+          volatile char _space_APB1RSTR[16];
+          /**
+            APB1 peripheral reset register (RCC_APB1RSTR)
+          */
+          volatile reg::APB1RSTR APB1RSTR;
+        };
+        struct {
+          volatile char _space_AHBENR[20];
+          /**
+            AHB Peripheral Clock enable register (RCC_AHBENR)
+          */
+          volatile reg::AHBENR AHBENR;
+        };
+        struct {
+          volatile char _space_APB2ENR[24];
+          /**
+            APB2 peripheral clock enable register (RCC_APB2ENR)
+          */
+          volatile reg::APB2ENR APB2ENR;
+        };
+        struct {
+          volatile char _space_APB1ENR[28];
+          /**
+            APB1 peripheral clock enable register (RCC_APB1ENR)
+          */
+          volatile reg::APB1ENR APB1ENR;
+        };
+        struct {
+          volatile char _space_BDCR[32];
+          /**
+            Backup domain control register (RCC_BDCR)
+          */
+          volatile reg::BDCR BDCR;
+        };
+        struct {
+          volatile char _space_CSR[36];
+          /**
+            Control/status register (RCC_CSR)
+          */
+          volatile reg::CSR CSR;
+        };
+        struct {
+          volatile char _space_AHBRSTR[40];
+          /**
+            AHB peripheral reset register
+          */
+          volatile reg::AHBRSTR AHBRSTR;
+        };
+        struct {
+          volatile char _space_CFGR2[44];
+          /**
+            Clock configuration register 2
+          */
+          volatile reg::CFGR2 CFGR2;
+        };
+        struct {
+          volatile char _space_CFGR3[48];
+          /**
+            Clock configuration register 3
+          */
+          volatile reg::CFGR3 CFGR3;
+        };
+        struct {
+          volatile char _space_CR2[52];
+          /**
+            Clock control register 2
+          */
+          volatile reg::CR2 CR2;
+        };
+      };
     };
   }
   

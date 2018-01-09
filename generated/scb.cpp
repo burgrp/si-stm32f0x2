@@ -452,36 +452,56 @@ namespace target {
     };
     class Peripheral {
       public:
-      /**
-        CPUID base register
-      */
-      volatile reg::CPUID CPUID;
-      /**
-        Interrupt control and state register
-      */
-      volatile reg::ICSR ICSR;
-      volatile char _space8[4];
-      /**
-        Application interrupt and reset control register
-      */
-      volatile reg::AIRCR AIRCR;
-      /**
-        System control register
-      */
-      volatile reg::SCR SCR;
-      /**
-        Configuration and control register
-      */
-      volatile reg::CCR CCR;
-      volatile char _space24[4];
-      /**
-        System handler priority registers
-      */
-      volatile reg::SHPR2 SHPR2;
-      /**
-        System handler priority registers
-      */
-      volatile reg::SHPR3 SHPR3;
+      union {
+        struct {
+          /**
+            CPUID base register
+          */
+          volatile reg::CPUID CPUID;
+        };
+        struct {
+          volatile char _space_ICSR[4];
+          /**
+            Interrupt control and state register
+          */
+          volatile reg::ICSR ICSR;
+        };
+        struct {
+          volatile char _space_AIRCR[12];
+          /**
+            Application interrupt and reset control register
+          */
+          volatile reg::AIRCR AIRCR;
+        };
+        struct {
+          volatile char _space_SCR[16];
+          /**
+            System control register
+          */
+          volatile reg::SCR SCR;
+        };
+        struct {
+          volatile char _space_CCR[20];
+          /**
+            Configuration and control register
+          */
+          volatile reg::CCR CCR;
+        };
+        struct {
+          volatile char _space_SHPR2[28];
+          /**
+            System handler priority registers
+          */
+          volatile reg::SHPR2 SHPR2;
+        };
+        struct {
+          volatile char _space_SHPR3[32];
+          /**
+            System handler priority registers
+          */
+          volatile reg::SHPR3 SHPR3;
+        };
+      };
     };
   }
   
