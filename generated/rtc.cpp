@@ -479,6 +479,20 @@ namespace target {
           raw = (raw & ~(0x1 << (13 + 1 * (index - 1)))) | ((value << (13 + 1 * (index - 1))) & (0x1 << (13 + 1 * (index - 1))));
         }
         /**
+          Gets RTC_TAMP1 detection flag
+          @return value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long getTAMP_F() volatile {
+          return (raw & (0x3 << 13)) >> 13;
+        }
+        /**
+          Sets RTC_TAMP1 detection flag
+          @param value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long setTAMP_F(unsigned long value) volatile {
+          raw = (raw & ~(0x3 << 13)) | ((value << 13) & (0x3 << 13));
+        }
+        /**
           Gets Alarm A write flag
           @return value in range 0..1
         */
@@ -689,6 +703,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setMSK(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (7 + 8 * (index - 1)))) | ((value << (7 + 8 * (index - 1))) & (0x1 << (7 + 8 * (index - 1))));
+        }
+        /**
+          Gets Alarm A seconds mask
+          @return value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long getMSK() volatile {
+          return (raw & (0xF << 7)) >> 7;
+        }
+        /**
+          Sets Alarm A seconds mask
+          @param value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long setMSK(unsigned long value) volatile {
+          raw = (raw & ~(0xF << 7)) | ((value << 7) & (0xF << 7));
         }
         /**
           Gets Week day selection
@@ -1253,6 +1281,20 @@ namespace target {
           raw = (raw & ~(0x1 << (19 + 2 * (index - 13)))) | ((value << (19 + 2 * (index - 13))) & (0x1 << (19 + 2 * (index - 13))));
         }
         /**
+          Gets PC13 mode
+          @return value in range 0..7
+        */
+        __attribute__((always_inline)) unsigned long getPC_MODE() volatile {
+          return (raw & (0x7 << 19)) >> 19;
+        }
+        /**
+          Sets PC13 mode
+          @param value in range 0..7
+        */
+        __attribute__((always_inline)) unsigned long setPC_MODE(unsigned long value) volatile {
+          raw = (raw & ~(0x7 << 19)) | ((value << 19) & (0x7 << 19));
+        }
+        /**
           Gets RTC_ALARM output type/PC13 value
           @param index in range 13..15
           @return value in range 0..1
@@ -1269,6 +1311,20 @@ namespace target {
           raw = (raw & ~(0x1 << (18 + 2 * (index - 13)))) | ((value << (18 + 2 * (index - 13))) & (0x1 << (18 + 2 * (index - 13))));
         }
         /**
+          Gets RTC_ALARM output type/PC13 value
+          @return value in range 0..7
+        */
+        __attribute__((always_inline)) unsigned long getPC_VALUE() volatile {
+          return (raw & (0x7 << 18)) >> 18;
+        }
+        /**
+          Sets RTC_ALARM output type/PC13 value
+          @param value in range 0..7
+        */
+        __attribute__((always_inline)) unsigned long setPC_VALUE(unsigned long value) volatile {
+          raw = (raw & ~(0x7 << 18)) | ((value << 18) & (0x7 << 18));
+        }
+        /**
           Gets RTC_TAMP1 input detection enable
           @param index in range 1..2
           @return value in range 0..1
@@ -1283,6 +1339,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setTAMP_E(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 3 * (index - 1)))) | ((value << (0 + 3 * (index - 1))) & (0x1 << (0 + 3 * (index - 1))));
+        }
+        /**
+          Gets RTC_TAMP1 input detection enable
+          @return value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long getTAMP_E() volatile {
+          return (raw & (0x3 << 0)) >> 0;
+        }
+        /**
+          Sets RTC_TAMP1 input detection enable
+          @param value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long setTAMP_E(unsigned long value) volatile {
+          raw = (raw & ~(0x3 << 0)) | ((value << 0) & (0x3 << 0));
         }
         /**
           Gets RTC_TAMPx pull-up disable

@@ -31,6 +31,20 @@ namespace target {
           raw = (raw & ~(0x1 << (0 + 4 * (index - 1)))) | ((value << (0 + 4 * (index - 1))) & (0x1 << (0 + 4 * (index - 1))));
         }
         /**
+          Gets Channel 1 Global interrupt flag
+          @return value in range 0..127
+        */
+        __attribute__((always_inline)) unsigned long getGIF() volatile {
+          return (raw & (0x7F << 0)) >> 0;
+        }
+        /**
+          Sets Channel 1 Global interrupt flag
+          @param value in range 0..127
+        */
+        __attribute__((always_inline)) unsigned long setGIF(unsigned long value) volatile {
+          raw = (raw & ~(0x7F << 0)) | ((value << 0) & (0x7F << 0));
+        }
+        /**
           Gets Channel 1 Transfer Complete flag
           @param index in range 1..7
           @return value in range 0..1
@@ -45,6 +59,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setTCIF(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (1 + 4 * (index - 1)))) | ((value << (1 + 4 * (index - 1))) & (0x1 << (1 + 4 * (index - 1))));
+        }
+        /**
+          Gets Channel 1 Transfer Complete flag
+          @return value in range 0..127
+        */
+        __attribute__((always_inline)) unsigned long getTCIF() volatile {
+          return (raw & (0x7F << 1)) >> 1;
+        }
+        /**
+          Sets Channel 1 Transfer Complete flag
+          @param value in range 0..127
+        */
+        __attribute__((always_inline)) unsigned long setTCIF(unsigned long value) volatile {
+          raw = (raw & ~(0x7F << 1)) | ((value << 1) & (0x7F << 1));
         }
         /**
           Gets Channel 1 Half Transfer Complete flag
@@ -63,6 +91,20 @@ namespace target {
           raw = (raw & ~(0x1 << (2 + 4 * (index - 1)))) | ((value << (2 + 4 * (index - 1))) & (0x1 << (2 + 4 * (index - 1))));
         }
         /**
+          Gets Channel 1 Half Transfer Complete flag
+          @return value in range 0..127
+        */
+        __attribute__((always_inline)) unsigned long getHTIF() volatile {
+          return (raw & (0x7F << 2)) >> 2;
+        }
+        /**
+          Sets Channel 1 Half Transfer Complete flag
+          @param value in range 0..127
+        */
+        __attribute__((always_inline)) unsigned long setHTIF(unsigned long value) volatile {
+          raw = (raw & ~(0x7F << 2)) | ((value << 2) & (0x7F << 2));
+        }
+        /**
           Gets Channel 1 Transfer Error flag
           @param index in range 1..7
           @return value in range 0..1
@@ -77,6 +119,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setTEIF(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (3 + 4 * (index - 1)))) | ((value << (3 + 4 * (index - 1))) & (0x1 << (3 + 4 * (index - 1))));
+        }
+        /**
+          Gets Channel 1 Transfer Error flag
+          @return value in range 0..127
+        */
+        __attribute__((always_inline)) unsigned long getTEIF() volatile {
+          return (raw & (0x7F << 3)) >> 3;
+        }
+        /**
+          Sets Channel 1 Transfer Error flag
+          @param value in range 0..127
+        */
+        __attribute__((always_inline)) unsigned long setTEIF(unsigned long value) volatile {
+          raw = (raw & ~(0x7F << 3)) | ((value << 3) & (0x7F << 3));
         }
       };
       
@@ -109,6 +165,20 @@ namespace target {
           raw = (raw & ~(0x1 << (0 + 4 * (index - 1)))) | ((value << (0 + 4 * (index - 1))) & (0x1 << (0 + 4 * (index - 1))));
         }
         /**
+          Gets Channel 1 Global interrupt clear
+          @return value in range 0..127
+        */
+        __attribute__((always_inline)) unsigned long getCGIF() volatile {
+          return (raw & (0x7F << 0)) >> 0;
+        }
+        /**
+          Sets Channel 1 Global interrupt clear
+          @param value in range 0..127
+        */
+        __attribute__((always_inline)) unsigned long setCGIF(unsigned long value) volatile {
+          raw = (raw & ~(0x7F << 0)) | ((value << 0) & (0x7F << 0));
+        }
+        /**
           Gets Channel 1 Transfer Complete clear
           @param index in range 1..7
           @return value in range 0..1
@@ -123,6 +193,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setCTCIF(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (1 + 4 * (index - 1)))) | ((value << (1 + 4 * (index - 1))) & (0x1 << (1 + 4 * (index - 1))));
+        }
+        /**
+          Gets Channel 1 Transfer Complete clear
+          @return value in range 0..127
+        */
+        __attribute__((always_inline)) unsigned long getCTCIF() volatile {
+          return (raw & (0x7F << 1)) >> 1;
+        }
+        /**
+          Sets Channel 1 Transfer Complete clear
+          @param value in range 0..127
+        */
+        __attribute__((always_inline)) unsigned long setCTCIF(unsigned long value) volatile {
+          raw = (raw & ~(0x7F << 1)) | ((value << 1) & (0x7F << 1));
         }
         /**
           Gets Channel 1 Half Transfer clear
@@ -141,6 +225,20 @@ namespace target {
           raw = (raw & ~(0x1 << (2 + 4 * (index - 1)))) | ((value << (2 + 4 * (index - 1))) & (0x1 << (2 + 4 * (index - 1))));
         }
         /**
+          Gets Channel 1 Half Transfer clear
+          @return value in range 0..127
+        */
+        __attribute__((always_inline)) unsigned long getCHTIF() volatile {
+          return (raw & (0x7F << 2)) >> 2;
+        }
+        /**
+          Sets Channel 1 Half Transfer clear
+          @param value in range 0..127
+        */
+        __attribute__((always_inline)) unsigned long setCHTIF(unsigned long value) volatile {
+          raw = (raw & ~(0x7F << 2)) | ((value << 2) & (0x7F << 2));
+        }
+        /**
           Gets Channel 1 Transfer Error clear
           @param index in range 1..7
           @return value in range 0..1
@@ -155,6 +253,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setCTEIF(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (3 + 4 * (index - 1)))) | ((value << (3 + 4 * (index - 1))) & (0x1 << (3 + 4 * (index - 1))));
+        }
+        /**
+          Gets Channel 1 Transfer Error clear
+          @return value in range 0..127
+        */
+        __attribute__((always_inline)) unsigned long getCTEIF() volatile {
+          return (raw & (0x7F << 3)) >> 3;
+        }
+        /**
+          Sets Channel 1 Transfer Error clear
+          @param value in range 0..127
+        */
+        __attribute__((always_inline)) unsigned long setCTEIF(unsigned long value) volatile {
+          raw = (raw & ~(0x7F << 3)) | ((value << 3) & (0x7F << 3));
         }
       };
       

@@ -339,6 +339,20 @@ namespace target {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 1)))) | ((value << (0 + 1 * (index - 1))) & (0x1 << (0 + 1 * (index - 1))));
         }
         /**
+          Gets G1_IO1 Schmitt trigger hysteresis mode
+          @return value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long getIO() volatile {
+          return (raw & (0xF << 0)) >> 0;
+        }
+        /**
+          Sets G1_IO1 Schmitt trigger hysteresis mode
+          @param value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long setIO(unsigned long value) volatile {
+          raw = (raw & ~(0xF << 0)) | ((value << 0) & (0xF << 0));
+        }
+        /**
           Gets G6_IO4 Schmitt trigger hysteresis mode
           @return value in range 0..1
         */
@@ -647,6 +661,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setIO(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 1)))) | ((value << (0 + 1 * (index - 1))) & (0x1 << (0 + 1 * (index - 1))));
+        }
+        /**
+          Gets G1_IO1 analog switch enable
+          @return value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long getIO() volatile {
+          return (raw & (0xF << 0)) >> 0;
+        }
+        /**
+          Sets G1_IO1 analog switch enable
+          @param value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long setIO(unsigned long value) volatile {
+          raw = (raw & ~(0xF << 0)) | ((value << 0) & (0xF << 0));
         }
         /**
           Gets G6_IO4 analog switch enable
@@ -959,6 +987,20 @@ namespace target {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 1)))) | ((value << (0 + 1 * (index - 1))) & (0x1 << (0 + 1 * (index - 1))));
         }
         /**
+          Gets G1_IO1 sampling mode
+          @return value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long getIO() volatile {
+          return (raw & (0xF << 0)) >> 0;
+        }
+        /**
+          Sets G1_IO1 sampling mode
+          @param value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long setIO(unsigned long value) volatile {
+          raw = (raw & ~(0xF << 0)) | ((value << 0) & (0xF << 0));
+        }
+        /**
           Gets G6_IO4 sampling mode
           @return value in range 0..1
         */
@@ -1267,6 +1309,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setIO(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 1)))) | ((value << (0 + 1 * (index - 1))) & (0x1 << (0 + 1 * (index - 1))));
+        }
+        /**
+          Gets G1_IO1 channel mode
+          @return value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long getIO() volatile {
+          return (raw & (0xF << 0)) >> 0;
+        }
+        /**
+          Sets G1_IO1 channel mode
+          @param value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long setIO(unsigned long value) volatile {
+          raw = (raw & ~(0xF << 0)) | ((value << 0) & (0xF << 0));
         }
         /**
           Gets G6_IO4 channel mode
@@ -1579,6 +1635,20 @@ namespace target {
           raw = (raw & ~(0x1 << (16 + 1 * (index - 1)))) | ((value << (16 + 1 * (index - 1))) & (0x1 << (16 + 1 * (index - 1))));
         }
         /**
+          Gets Analog I/O group x status
+          @return value in range 0..255
+        */
+        __attribute__((always_inline)) unsigned long getG_S() volatile {
+          return (raw & (0xFF << 16)) >> 16;
+        }
+        /**
+          Sets Analog I/O group x status
+          @param value in range 0..255
+        */
+        __attribute__((always_inline)) unsigned long setG_S(unsigned long value) volatile {
+          raw = (raw & ~(0xFF << 16)) | ((value << 16) & (0xFF << 16));
+        }
+        /**
           Gets Analog I/O group x enable
           @param index in range 1..8
           @return value in range 0..1
@@ -1593,6 +1663,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setG_E(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 1)))) | ((value << (0 + 1 * (index - 1))) & (0x1 << (0 + 1 * (index - 1))));
+        }
+        /**
+          Gets Analog I/O group x enable
+          @return value in range 0..255
+        */
+        __attribute__((always_inline)) unsigned long getG_E() volatile {
+          return (raw & (0xFF << 0)) >> 0;
+        }
+        /**
+          Sets Analog I/O group x enable
+          @param value in range 0..255
+        */
+        __attribute__((always_inline)) unsigned long setG_E(unsigned long value) volatile {
+          raw = (raw & ~(0xFF << 0)) | ((value << 0) & (0xFF << 0));
         }
       };
       

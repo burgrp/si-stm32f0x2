@@ -143,6 +143,20 @@ namespace target {
           raw = (raw & ~(0x1 << (8 + 1 * (index - 1)))) | ((value << (8 + 1 * (index - 1))) & (0x1 << (8 + 1 * (index - 1))));
         }
         /**
+          Gets Enable WKUP pin 1
+          @return value in range 0..255
+        */
+        __attribute__((always_inline)) unsigned long getEWUP() volatile {
+          return (raw & (0xFF << 8)) >> 8;
+        }
+        /**
+          Sets Enable WKUP pin 1
+          @param value in range 0..255
+        */
+        __attribute__((always_inline)) unsigned long setEWUP(unsigned long value) volatile {
+          raw = (raw & ~(0xFF << 8)) | ((value << 8) & (0xFF << 8));
+        }
+        /**
           Gets Wakeup flag
           @return value in range 0..1
         */

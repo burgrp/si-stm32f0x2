@@ -310,6 +310,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setEXTI(int index, unsigned long value) volatile {
           raw = (raw & ~(0xF << (0 + 4 * (index - 0)))) | ((value << (0 + 4 * (index - 0))) & (0xF << (0 + 4 * (index - 0))));
         }
+        /**
+          Gets EXTI 0 configuration bits
+          @return value in range 0..65535
+        */
+        __attribute__((always_inline)) unsigned long getEXTI() volatile {
+          return (raw & (0xFFFF << 0)) >> 0;
+        }
+        /**
+          Sets EXTI 0 configuration bits
+          @param value in range 0..65535
+        */
+        __attribute__((always_inline)) unsigned long setEXTI(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFF << 0)) | ((value << 0) & (0xFFFF << 0));
+        }
       };
       
       /**
@@ -339,6 +353,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setEXTI(int index, unsigned long value) volatile {
           raw = (raw & ~(0xF << (0 + 4 * (index - 4)))) | ((value << (0 + 4 * (index - 4))) & (0xF << (0 + 4 * (index - 4))));
+        }
+        /**
+          Gets EXTI 4 configuration bits
+          @return value in range 0..65535
+        */
+        __attribute__((always_inline)) unsigned long getEXTI() volatile {
+          return (raw & (0xFFFF << 0)) >> 0;
+        }
+        /**
+          Sets EXTI 4 configuration bits
+          @param value in range 0..65535
+        */
+        __attribute__((always_inline)) unsigned long setEXTI(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFF << 0)) | ((value << 0) & (0xFFFF << 0));
         }
       };
       
@@ -370,6 +398,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setEXTI(int index, unsigned long value) volatile {
           raw = (raw & ~(0xF << (0 + 4 * (index - 8)))) | ((value << (0 + 4 * (index - 8))) & (0xF << (0 + 4 * (index - 8))));
         }
+        /**
+          Gets EXTI 8 configuration bits
+          @return value in range 0..65535
+        */
+        __attribute__((always_inline)) unsigned long getEXTI() volatile {
+          return (raw & (0xFFFF << 0)) >> 0;
+        }
+        /**
+          Sets EXTI 8 configuration bits
+          @param value in range 0..65535
+        */
+        __attribute__((always_inline)) unsigned long setEXTI(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFF << 0)) | ((value << 0) & (0xFFFF << 0));
+        }
       };
       
       /**
@@ -399,6 +441,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setEXTI(int index, unsigned long value) volatile {
           raw = (raw & ~(0xF << (0 + 4 * (index - 12)))) | ((value << (0 + 4 * (index - 12))) & (0xF << (0 + 4 * (index - 12))));
+        }
+        /**
+          Gets EXTI 12 configuration bits
+          @return value in range 0..65535
+        */
+        __attribute__((always_inline)) unsigned long getEXTI() volatile {
+          return (raw & (0xFFFF << 0)) >> 0;
+        }
+        /**
+          Sets EXTI 12 configuration bits
+          @param value in range 0..65535
+        */
+        __attribute__((always_inline)) unsigned long setEXTI(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFF << 0)) | ((value << 0) & (0xFFFF << 0));
         }
       };
       
@@ -501,6 +557,20 @@ namespace target {
           raw = (raw & ~(0x1 << (0 + 16 * (index - 1)))) | ((value << (0 + 16 * (index - 1))) & (0x1 << (0 + 16 * (index - 1))));
         }
         /**
+          Gets Comparator 1 enable
+          @return value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long getCOMP_EN() volatile {
+          return (raw & (0x3 << 0)) >> 0;
+        }
+        /**
+          Sets Comparator 1 enable
+          @param value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long setCOMP_EN(unsigned long value) volatile {
+          raw = (raw & ~(0x3 << 0)) | ((value << 0) & (0x3 << 0));
+        }
+        /**
           Gets Comparator 1 mode
           @param index in range 1..2
           @return value in range 0..3
@@ -515,6 +585,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setCOMP_MODE(int index, unsigned long value) volatile {
           raw = (raw & ~(0x3 << (2 + 16 * (index - 1)))) | ((value << (2 + 16 * (index - 1))) & (0x3 << (2 + 16 * (index - 1))));
+        }
+        /**
+          Gets Comparator 1 mode
+          @return value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long getCOMP_MODE() volatile {
+          return (raw & (0xF << 2)) >> 2;
+        }
+        /**
+          Sets Comparator 1 mode
+          @param value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long setCOMP_MODE(unsigned long value) volatile {
+          raw = (raw & ~(0xF << 2)) | ((value << 2) & (0xF << 2));
         }
         /**
           Gets Comparator 1 inverting input selection
@@ -533,6 +617,20 @@ namespace target {
           raw = (raw & ~(0x7 << (4 + 16 * (index - 1)))) | ((value << (4 + 16 * (index - 1))) & (0x7 << (4 + 16 * (index - 1))));
         }
         /**
+          Gets Comparator 1 inverting input selection
+          @return value in range 0..63
+        */
+        __attribute__((always_inline)) unsigned long getCOMP_INSEL() volatile {
+          return (raw & (0x3F << 4)) >> 4;
+        }
+        /**
+          Sets Comparator 1 inverting input selection
+          @param value in range 0..63
+        */
+        __attribute__((always_inline)) unsigned long setCOMP_INSEL(unsigned long value) volatile {
+          raw = (raw & ~(0x3F << 4)) | ((value << 4) & (0x3F << 4));
+        }
+        /**
           Gets Comparator 1 output selection
           @param index in range 1..2
           @return value in range 0..7
@@ -547,6 +645,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setCOMP_OUTSEL(int index, unsigned long value) volatile {
           raw = (raw & ~(0x7 << (8 + 16 * (index - 1)))) | ((value << (8 + 16 * (index - 1))) & (0x7 << (8 + 16 * (index - 1))));
+        }
+        /**
+          Gets Comparator 1 output selection
+          @return value in range 0..63
+        */
+        __attribute__((always_inline)) unsigned long getCOMP_OUTSEL() volatile {
+          return (raw & (0x3F << 8)) >> 8;
+        }
+        /**
+          Sets Comparator 1 output selection
+          @param value in range 0..63
+        */
+        __attribute__((always_inline)) unsigned long setCOMP_OUTSEL(unsigned long value) volatile {
+          raw = (raw & ~(0x3F << 8)) | ((value << 8) & (0x3F << 8));
         }
         /**
           Gets Comparator 1 output polarity
@@ -565,6 +677,20 @@ namespace target {
           raw = (raw & ~(0x1 << (11 + 16 * (index - 1)))) | ((value << (11 + 16 * (index - 1))) & (0x1 << (11 + 16 * (index - 1))));
         }
         /**
+          Gets Comparator 1 output polarity
+          @return value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long getCOMP_POL() volatile {
+          return (raw & (0x3 << 11)) >> 11;
+        }
+        /**
+          Sets Comparator 1 output polarity
+          @param value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long setCOMP_POL(unsigned long value) volatile {
+          raw = (raw & ~(0x3 << 11)) | ((value << 11) & (0x3 << 11));
+        }
+        /**
           Gets Comparator 1 hysteresis
           @param index in range 1..2
           @return value in range 0..3
@@ -579,6 +705,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setCOMP_HYST(int index, unsigned long value) volatile {
           raw = (raw & ~(0x3 << (12 + 16 * (index - 1)))) | ((value << (12 + 16 * (index - 1))) & (0x3 << (12 + 16 * (index - 1))));
+        }
+        /**
+          Gets Comparator 1 hysteresis
+          @return value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long getCOMP_HYST() volatile {
+          return (raw & (0xF << 12)) >> 12;
+        }
+        /**
+          Sets Comparator 1 hysteresis
+          @param value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long setCOMP_HYST(unsigned long value) volatile {
+          raw = (raw & ~(0xF << 12)) | ((value << 12) & (0xF << 12));
         }
         /**
           Gets Comparator 1 output
@@ -597,6 +737,20 @@ namespace target {
           raw = (raw & ~(0x1 << (14 + 16 * (index - 1)))) | ((value << (14 + 16 * (index - 1))) & (0x1 << (14 + 16 * (index - 1))));
         }
         /**
+          Gets Comparator 1 output
+          @return value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long getCOMP_OUT() volatile {
+          return (raw & (0x3 << 14)) >> 14;
+        }
+        /**
+          Sets Comparator 1 output
+          @param value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long setCOMP_OUT(unsigned long value) volatile {
+          raw = (raw & ~(0x3 << 14)) | ((value << 14) & (0x3 << 14));
+        }
+        /**
           Gets Comparator 1 lock
           @param index in range 1..2
           @return value in range 0..1
@@ -611,6 +765,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setCOMP_LOCK(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (15 + 16 * (index - 1)))) | ((value << (15 + 16 * (index - 1))) & (0x1 << (15 + 16 * (index - 1))));
+        }
+        /**
+          Gets Comparator 1 lock
+          @return value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long getCOMP_LOCK() volatile {
+          return (raw & (0x3 << 15)) >> 15;
+        }
+        /**
+          Sets Comparator 1 lock
+          @param value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long setCOMP_LOCK(unsigned long value) volatile {
+          raw = (raw & ~(0x3 << 15)) | ((value << 15) & (0x3 << 15));
         }
         /**
           Gets COMP1_INP_DAC

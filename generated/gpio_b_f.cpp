@@ -30,6 +30,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setMODER(int index, unsigned long value) volatile {
           raw = (raw & ~(0x3 << (0 + 2 * (index - 0)))) | ((value << (0 + 2 * (index - 0))) & (0x3 << (0 + 2 * (index - 0))));
         }
+        /**
+          Gets Port x configuration bits (y = 0..15)
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getMODER() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Port x configuration bits (y = 0..15)
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setMODER(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -59,6 +73,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setOT(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+        }
+        /**
+          Gets Port x configuration bit 0
+          @return value in range 0..65535
+        */
+        __attribute__((always_inline)) unsigned long getOT() volatile {
+          return (raw & (0xFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Port x configuration bit 0
+          @param value in range 0..65535
+        */
+        __attribute__((always_inline)) unsigned long setOT(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFF << 0)) | ((value << 0) & (0xFFFF << 0));
         }
       };
       
@@ -90,6 +118,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setOSPEEDR(int index, unsigned long value) volatile {
           raw = (raw & ~(0x3 << (0 + 2 * (index - 0)))) | ((value << (0 + 2 * (index - 0))) & (0x3 << (0 + 2 * (index - 0))));
         }
+        /**
+          Gets Port x configuration bits (y = 0..15)
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getOSPEEDR() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Port x configuration bits (y = 0..15)
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setOSPEEDR(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -119,6 +161,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setPUPDR(int index, unsigned long value) volatile {
           raw = (raw & ~(0x3 << (0 + 2 * (index - 0)))) | ((value << (0 + 2 * (index - 0))) & (0x3 << (0 + 2 * (index - 0))));
+        }
+        /**
+          Gets Port x configuration bits (y = 0..15)
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getPUPDR() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Port x configuration bits (y = 0..15)
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setPUPDR(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
         }
       };
       
@@ -150,6 +206,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setIDR(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
+        /**
+          Gets Port input data (y = 0..15)
+          @return value in range 0..65535
+        */
+        __attribute__((always_inline)) unsigned long getIDR() volatile {
+          return (raw & (0xFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Port input data (y = 0..15)
+          @param value in range 0..65535
+        */
+        __attribute__((always_inline)) unsigned long setIDR(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFF << 0)) | ((value << 0) & (0xFFFF << 0));
+        }
       };
       
       /**
@@ -179,6 +249,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setODR(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+        }
+        /**
+          Gets Port output data (y = 0..15)
+          @return value in range 0..65535
+        */
+        __attribute__((always_inline)) unsigned long getODR() volatile {
+          return (raw & (0xFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Port output data (y = 0..15)
+          @param value in range 0..65535
+        */
+        __attribute__((always_inline)) unsigned long setODR(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFF << 0)) | ((value << 0) & (0xFFFF << 0));
         }
       };
       
@@ -212,6 +296,20 @@ namespace target {
         }
         /**
           Gets Port x set bit y (y= 0..15)
+          @return value in range 0..65535
+        */
+        __attribute__((always_inline)) unsigned long getBR() volatile {
+          return (raw & (0xFFFF << 16)) >> 16;
+        }
+        /**
+          Sets Port x set bit y (y= 0..15)
+          @param value in range 0..65535
+        */
+        __attribute__((always_inline)) unsigned long setBR(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFF << 16)) | ((value << 16) & (0xFFFF << 16));
+        }
+        /**
+          Gets Port x set bit y (y= 0..15)
           @param index in range 0..15
           @return value in range 0..1
         */
@@ -225,6 +323,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setBS(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+        }
+        /**
+          Gets Port x set bit y (y= 0..15)
+          @return value in range 0..65535
+        */
+        __attribute__((always_inline)) unsigned long getBS() volatile {
+          return (raw & (0xFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Port x set bit y (y= 0..15)
+          @param value in range 0..65535
+        */
+        __attribute__((always_inline)) unsigned long setBS(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFF << 0)) | ((value << 0) & (0xFFFF << 0));
         }
       };
       
@@ -255,6 +367,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setLCK(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+        }
+        /**
+          Gets Port x lock bit y (y= 0..15)
+          @return value in range 0..65535
+        */
+        __attribute__((always_inline)) unsigned long getLCK() volatile {
+          return (raw & (0xFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Port x lock bit y (y= 0..15)
+          @param value in range 0..65535
+        */
+        __attribute__((always_inline)) unsigned long setLCK(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFF << 0)) | ((value << 0) & (0xFFFF << 0));
         }
         /**
           Gets Port x lock bit y
@@ -300,6 +426,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setAFRL(int index, unsigned long value) volatile {
           raw = (raw & ~(0xF << (0 + 4 * (index - 0)))) | ((value << (0 + 4 * (index - 0))) & (0xF << (0 + 4 * (index - 0))));
         }
+        /**
+          Gets Alternate function selection for port x bit y (y = 0..7)
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getAFRL() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Alternate function selection for port x bit y (y = 0..7)
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setAFRL(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -330,6 +470,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setAFRH(int index, unsigned long value) volatile {
           raw = (raw & ~(0xF << (0 + 4 * (index - 8)))) | ((value << (0 + 4 * (index - 8))) & (0xF << (0 + 4 * (index - 8))));
         }
+        /**
+          Gets Alternate function selection for port x bit y (y = 8..15)
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getAFRH() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Alternate function selection for port x bit y (y = 8..15)
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setAFRH(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -359,6 +513,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setBR(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+        }
+        /**
+          Gets Port x Reset bit y
+          @return value in range 0..65535
+        */
+        __attribute__((always_inline)) unsigned long getBR() volatile {
+          return (raw & (0xFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Port x Reset bit y
+          @param value in range 0..65535
+        */
+        __attribute__((always_inline)) unsigned long setBR(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFF << 0)) | ((value << 0) & (0xFFFF << 0));
         }
       };
     };

@@ -339,6 +339,20 @@ namespace target {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
         /**
+          Gets Slave address bit 0 (master mode)
+          @return value in range 0..511
+        */
+        __attribute__((always_inline)) unsigned long getSADD() volatile {
+          return (raw & (0x1FF << 0)) >> 0;
+        }
+        /**
+          Sets Slave address bit 0 (master mode)
+          @param value in range 0..511
+        */
+        __attribute__((always_inline)) unsigned long setSADD(unsigned long value) volatile {
+          raw = (raw & ~(0x1FF << 0)) | ((value << 0) & (0x1FF << 0));
+        }
+        /**
           Gets Packet error checking byte
           @return value in range 0..1
         */

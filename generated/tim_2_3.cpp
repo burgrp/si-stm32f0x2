@@ -325,6 +325,20 @@ namespace target {
           raw = (raw & ~(0x1 << (9 + 1 * (index - 1)))) | ((value << (9 + 1 * (index - 1))) & (0x1 << (9 + 1 * (index - 1))));
         }
         /**
+          Gets Capture/Compare 1 DMA request enable
+          @return value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long getCC_DE() volatile {
+          return (raw & (0xF << 9)) >> 9;
+        }
+        /**
+          Sets Capture/Compare 1 DMA request enable
+          @param value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long setCC_DE(unsigned long value) volatile {
+          raw = (raw & ~(0xF << 9)) | ((value << 9) & (0xF << 9));
+        }
+        /**
           Gets Capture/Compare 1 interrupt enable
           @param index in range 1..4
           @return value in range 0..1
@@ -339,6 +353,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setCC_IE(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (1 + 1 * (index - 1)))) | ((value << (1 + 1 * (index - 1))) & (0x1 << (1 + 1 * (index - 1))));
+        }
+        /**
+          Gets Capture/Compare 1 interrupt enable
+          @return value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long getCC_IE() volatile {
+          return (raw & (0xF << 1)) >> 1;
+        }
+        /**
+          Sets Capture/Compare 1 interrupt enable
+          @param value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long setCC_IE(unsigned long value) volatile {
+          raw = (raw & ~(0xF << 1)) | ((value << 1) & (0xF << 1));
         }
         /**
           Gets Trigger DMA request enable
@@ -441,6 +469,20 @@ namespace target {
           raw = (raw & ~(0x1 << (9 + 1 * (index - 1)))) | ((value << (9 + 1 * (index - 1))) & (0x1 << (9 + 1 * (index - 1))));
         }
         /**
+          Gets Capture/Compare 1 overcapture flag
+          @return value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long getCC_OF() volatile {
+          return (raw & (0xF << 9)) >> 9;
+        }
+        /**
+          Sets Capture/Compare 1 overcapture flag
+          @param value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long setCC_OF(unsigned long value) volatile {
+          raw = (raw & ~(0xF << 9)) | ((value << 9) & (0xF << 9));
+        }
+        /**
           Gets Capture/compare 1 interrupt flag
           @param index in range 1..4
           @return value in range 0..1
@@ -455,6 +497,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setCC_IF(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (1 + 1 * (index - 1)))) | ((value << (1 + 1 * (index - 1))) & (0x1 << (1 + 1 * (index - 1))));
+        }
+        /**
+          Gets Capture/compare 1 interrupt flag
+          @return value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long getCC_IF() volatile {
+          return (raw & (0xF << 1)) >> 1;
+        }
+        /**
+          Sets Capture/compare 1 interrupt flag
+          @param value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long setCC_IF(unsigned long value) volatile {
+          raw = (raw & ~(0xF << 1)) | ((value << 1) & (0xF << 1));
         }
         /**
           Gets Trigger interrupt flag
@@ -515,6 +571,20 @@ namespace target {
           raw = (raw & ~(0x1 << (1 + 1 * (index - 1)))) | ((value << (1 + 1 * (index - 1))) & (0x1 << (1 + 1 * (index - 1))));
         }
         /**
+          Gets Capture/compare 1 generation
+          @return value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long getCC_G() volatile {
+          return (raw & (0xF << 1)) >> 1;
+        }
+        /**
+          Sets Capture/compare 1 generation
+          @param value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long setCC_G(unsigned long value) volatile {
+          raw = (raw & ~(0xF << 1)) | ((value << 1) & (0xF << 1));
+        }
+        /**
           Gets Trigger generation
           @return value in range 0..1
         */
@@ -573,6 +643,20 @@ namespace target {
           raw = (raw & ~(0x1 << (7 + 8 * (index - 1)))) | ((value << (7 + 8 * (index - 1))) & (0x1 << (7 + 8 * (index - 1))));
         }
         /**
+          Gets Output compare 1 clear enable
+          @return value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long getOC_CE() volatile {
+          return (raw & (0x3 << 7)) >> 7;
+        }
+        /**
+          Sets Output compare 1 clear enable
+          @param value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long setOC_CE(unsigned long value) volatile {
+          raw = (raw & ~(0x3 << 7)) | ((value << 7) & (0x3 << 7));
+        }
+        /**
           Gets Output compare 1 mode
           @param index in range 1..2
           @return value in range 0..7
@@ -587,6 +671,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setOC_M(int index, unsigned long value) volatile {
           raw = (raw & ~(0x7 << (4 + 8 * (index - 1)))) | ((value << (4 + 8 * (index - 1))) & (0x7 << (4 + 8 * (index - 1))));
+        }
+        /**
+          Gets Output compare 1 mode
+          @return value in range 0..63
+        */
+        __attribute__((always_inline)) unsigned long getOC_M() volatile {
+          return (raw & (0x3F << 4)) >> 4;
+        }
+        /**
+          Sets Output compare 1 mode
+          @param value in range 0..63
+        */
+        __attribute__((always_inline)) unsigned long setOC_M(unsigned long value) volatile {
+          raw = (raw & ~(0x3F << 4)) | ((value << 4) & (0x3F << 4));
         }
         /**
           Gets Output compare 1 preload enable
@@ -605,6 +703,20 @@ namespace target {
           raw = (raw & ~(0x1 << (3 + 8 * (index - 1)))) | ((value << (3 + 8 * (index - 1))) & (0x1 << (3 + 8 * (index - 1))));
         }
         /**
+          Gets Output compare 1 preload enable
+          @return value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long getOC_PE() volatile {
+          return (raw & (0x3 << 3)) >> 3;
+        }
+        /**
+          Sets Output compare 1 preload enable
+          @param value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long setOC_PE(unsigned long value) volatile {
+          raw = (raw & ~(0x3 << 3)) | ((value << 3) & (0x3 << 3));
+        }
+        /**
           Gets Output compare 1 fast enable
           @param index in range 1..2
           @return value in range 0..1
@@ -621,6 +733,20 @@ namespace target {
           raw = (raw & ~(0x1 << (2 + 8 * (index - 1)))) | ((value << (2 + 8 * (index - 1))) & (0x1 << (2 + 8 * (index - 1))));
         }
         /**
+          Gets Output compare 1 fast enable
+          @return value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long getOC_FE() volatile {
+          return (raw & (0x3 << 2)) >> 2;
+        }
+        /**
+          Sets Output compare 1 fast enable
+          @param value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long setOC_FE(unsigned long value) volatile {
+          raw = (raw & ~(0x3 << 2)) | ((value << 2) & (0x3 << 2));
+        }
+        /**
           Gets Capture/Compare 1 selection
           @param index in range 1..2
           @return value in range 0..3
@@ -635,6 +761,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setCC_S(int index, unsigned long value) volatile {
           raw = (raw & ~(0x3 << (0 + 8 * (index - 1)))) | ((value << (0 + 8 * (index - 1))) & (0x3 << (0 + 8 * (index - 1))));
+        }
+        /**
+          Gets Capture/Compare 1 selection
+          @return value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long getCC_S() volatile {
+          return (raw & (0xF << 0)) >> 0;
+        }
+        /**
+          Sets Capture/Compare 1 selection
+          @param value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long setCC_S(unsigned long value) volatile {
+          raw = (raw & ~(0xF << 0)) | ((value << 0) & (0xF << 0));
         }
       };
       
@@ -667,6 +807,20 @@ namespace target {
           raw = (raw & ~(0xF << (4 + 8 * (index - 1)))) | ((value << (4 + 8 * (index - 1))) & (0xF << (4 + 8 * (index - 1))));
         }
         /**
+          Gets Input capture 1 filter
+          @return value in range 0..255
+        */
+        __attribute__((always_inline)) unsigned long getIC_F() volatile {
+          return (raw & (0xFF << 4)) >> 4;
+        }
+        /**
+          Sets Input capture 1 filter
+          @param value in range 0..255
+        */
+        __attribute__((always_inline)) unsigned long setIC_F(unsigned long value) volatile {
+          raw = (raw & ~(0xFF << 4)) | ((value << 4) & (0xFF << 4));
+        }
+        /**
           Gets Input capture 1 prescaler
           @param index in range 1..2
           @return value in range 0..3
@@ -683,6 +837,20 @@ namespace target {
           raw = (raw & ~(0x3 << (2 + 8 * (index - 1)))) | ((value << (2 + 8 * (index - 1))) & (0x3 << (2 + 8 * (index - 1))));
         }
         /**
+          Gets Input capture 1 prescaler
+          @return value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long getIC_PSC() volatile {
+          return (raw & (0xF << 2)) >> 2;
+        }
+        /**
+          Sets Input capture 1 prescaler
+          @param value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long setIC_PSC(unsigned long value) volatile {
+          raw = (raw & ~(0xF << 2)) | ((value << 2) & (0xF << 2));
+        }
+        /**
           Gets Capture/Compare 1 selection
           @param index in range 1..2
           @return value in range 0..3
@@ -697,6 +865,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setCC_S(int index, unsigned long value) volatile {
           raw = (raw & ~(0x3 << (0 + 8 * (index - 1)))) | ((value << (0 + 8 * (index - 1))) & (0x3 << (0 + 8 * (index - 1))));
+        }
+        /**
+          Gets Capture/Compare 1 selection
+          @return value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long getCC_S() volatile {
+          return (raw & (0xF << 0)) >> 0;
+        }
+        /**
+          Sets Capture/Compare 1 selection
+          @param value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long setCC_S(unsigned long value) volatile {
+          raw = (raw & ~(0xF << 0)) | ((value << 0) & (0xF << 0));
         }
       };
       
@@ -729,6 +911,20 @@ namespace target {
           raw = (raw & ~(0x1 << (7 + 8 * (index - 3)))) | ((value << (7 + 8 * (index - 3))) & (0x1 << (7 + 8 * (index - 3))));
         }
         /**
+          Gets Output compare 3 clear enable
+          @return value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long getOC_CE() volatile {
+          return (raw & (0x3 << 7)) >> 7;
+        }
+        /**
+          Sets Output compare 3 clear enable
+          @param value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long setOC_CE(unsigned long value) volatile {
+          raw = (raw & ~(0x3 << 7)) | ((value << 7) & (0x3 << 7));
+        }
+        /**
           Gets Output compare 3 mode
           @param index in range 3..4
           @return value in range 0..7
@@ -743,6 +939,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setOC_M(int index, unsigned long value) volatile {
           raw = (raw & ~(0x7 << (4 + 8 * (index - 3)))) | ((value << (4 + 8 * (index - 3))) & (0x7 << (4 + 8 * (index - 3))));
+        }
+        /**
+          Gets Output compare 3 mode
+          @return value in range 0..63
+        */
+        __attribute__((always_inline)) unsigned long getOC_M() volatile {
+          return (raw & (0x3F << 4)) >> 4;
+        }
+        /**
+          Sets Output compare 3 mode
+          @param value in range 0..63
+        */
+        __attribute__((always_inline)) unsigned long setOC_M(unsigned long value) volatile {
+          raw = (raw & ~(0x3F << 4)) | ((value << 4) & (0x3F << 4));
         }
         /**
           Gets Output compare 3 preload enable
@@ -761,6 +971,20 @@ namespace target {
           raw = (raw & ~(0x1 << (3 + 8 * (index - 3)))) | ((value << (3 + 8 * (index - 3))) & (0x1 << (3 + 8 * (index - 3))));
         }
         /**
+          Gets Output compare 3 preload enable
+          @return value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long getOC_PE() volatile {
+          return (raw & (0x3 << 3)) >> 3;
+        }
+        /**
+          Sets Output compare 3 preload enable
+          @param value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long setOC_PE(unsigned long value) volatile {
+          raw = (raw & ~(0x3 << 3)) | ((value << 3) & (0x3 << 3));
+        }
+        /**
           Gets Output compare 3 fast enable
           @param index in range 3..4
           @return value in range 0..1
@@ -777,6 +1001,20 @@ namespace target {
           raw = (raw & ~(0x1 << (2 + 8 * (index - 3)))) | ((value << (2 + 8 * (index - 3))) & (0x1 << (2 + 8 * (index - 3))));
         }
         /**
+          Gets Output compare 3 fast enable
+          @return value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long getOC_FE() volatile {
+          return (raw & (0x3 << 2)) >> 2;
+        }
+        /**
+          Sets Output compare 3 fast enable
+          @param value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long setOC_FE(unsigned long value) volatile {
+          raw = (raw & ~(0x3 << 2)) | ((value << 2) & (0x3 << 2));
+        }
+        /**
           Gets Capture/Compare 3 selection
           @param index in range 3..4
           @return value in range 0..3
@@ -791,6 +1029,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setCC_S(int index, unsigned long value) volatile {
           raw = (raw & ~(0x3 << (0 + 8 * (index - 3)))) | ((value << (0 + 8 * (index - 3))) & (0x3 << (0 + 8 * (index - 3))));
+        }
+        /**
+          Gets Capture/Compare 3 selection
+          @return value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long getCC_S() volatile {
+          return (raw & (0xF << 0)) >> 0;
+        }
+        /**
+          Sets Capture/Compare 3 selection
+          @param value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long setCC_S(unsigned long value) volatile {
+          raw = (raw & ~(0xF << 0)) | ((value << 0) & (0xF << 0));
         }
       };
       
@@ -823,6 +1075,20 @@ namespace target {
           raw = (raw & ~(0xF << (4 + 8 * (index - 3)))) | ((value << (4 + 8 * (index - 3))) & (0xF << (4 + 8 * (index - 3))));
         }
         /**
+          Gets Input capture 3 filter
+          @return value in range 0..255
+        */
+        __attribute__((always_inline)) unsigned long getIC_F() volatile {
+          return (raw & (0xFF << 4)) >> 4;
+        }
+        /**
+          Sets Input capture 3 filter
+          @param value in range 0..255
+        */
+        __attribute__((always_inline)) unsigned long setIC_F(unsigned long value) volatile {
+          raw = (raw & ~(0xFF << 4)) | ((value << 4) & (0xFF << 4));
+        }
+        /**
           Gets Input capture 3 prescaler
           @param index in range 3..4
           @return value in range 0..3
@@ -839,6 +1105,20 @@ namespace target {
           raw = (raw & ~(0x3 << (2 + 8 * (index - 3)))) | ((value << (2 + 8 * (index - 3))) & (0x3 << (2 + 8 * (index - 3))));
         }
         /**
+          Gets Input capture 3 prescaler
+          @return value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long getIC_PSC() volatile {
+          return (raw & (0xF << 2)) >> 2;
+        }
+        /**
+          Sets Input capture 3 prescaler
+          @param value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long setIC_PSC(unsigned long value) volatile {
+          raw = (raw & ~(0xF << 2)) | ((value << 2) & (0xF << 2));
+        }
+        /**
           Gets Capture/Compare 3 selection
           @param index in range 3..4
           @return value in range 0..3
@@ -853,6 +1133,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setCC_S(int index, unsigned long value) volatile {
           raw = (raw & ~(0x3 << (0 + 8 * (index - 3)))) | ((value << (0 + 8 * (index - 3))) & (0x3 << (0 + 8 * (index - 3))));
+        }
+        /**
+          Gets Capture/Compare 3 selection
+          @return value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long getCC_S() volatile {
+          return (raw & (0xF << 0)) >> 0;
+        }
+        /**
+          Sets Capture/Compare 3 selection
+          @param value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long setCC_S(unsigned long value) volatile {
+          raw = (raw & ~(0xF << 0)) | ((value << 0) & (0xF << 0));
         }
       };
       
@@ -886,6 +1180,20 @@ namespace target {
         }
         /**
           Gets Capture/Compare 1 output Polarity
+          @return value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long getCC_NP() volatile {
+          return (raw & (0xF << 3)) >> 3;
+        }
+        /**
+          Sets Capture/Compare 1 output Polarity
+          @param value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long setCC_NP(unsigned long value) volatile {
+          raw = (raw & ~(0xF << 3)) | ((value << 3) & (0xF << 3));
+        }
+        /**
+          Gets Capture/Compare 1 output Polarity
           @param index in range 1..4
           @return value in range 0..1
         */
@@ -899,6 +1207,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setCC_P(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (1 + 4 * (index - 1)))) | ((value << (1 + 4 * (index - 1))) & (0x1 << (1 + 4 * (index - 1))));
+        }
+        /**
+          Gets Capture/Compare 1 output Polarity
+          @return value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long getCC_P() volatile {
+          return (raw & (0xF << 1)) >> 1;
+        }
+        /**
+          Sets Capture/Compare 1 output Polarity
+          @param value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long setCC_P(unsigned long value) volatile {
+          raw = (raw & ~(0xF << 1)) | ((value << 1) & (0xF << 1));
         }
         /**
           Gets Capture/Compare 1 output enable
@@ -915,6 +1237,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setCC_E(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 4 * (index - 1)))) | ((value << (0 + 4 * (index - 1))) & (0x1 << (0 + 4 * (index - 1))));
+        }
+        /**
+          Gets Capture/Compare 1 output enable
+          @return value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long getCC_E() volatile {
+          return (raw & (0xF << 0)) >> 0;
+        }
+        /**
+          Sets Capture/Compare 1 output enable
+          @param value in range 0..15
+        */
+        __attribute__((always_inline)) unsigned long setCC_E(unsigned long value) volatile {
+          raw = (raw & ~(0xF << 0)) | ((value << 0) & (0xF << 0));
         }
       };
       

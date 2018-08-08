@@ -326,6 +326,20 @@ namespace target {
         }
         /**
           Gets Lowest priority flag for mailbox 0
+          @return value in range 0..7
+        */
+        __attribute__((always_inline)) unsigned long getLOW() volatile {
+          return (raw & (0x7 << 29)) >> 29;
+        }
+        /**
+          Sets Lowest priority flag for mailbox 0
+          @param value in range 0..7
+        */
+        __attribute__((always_inline)) unsigned long setLOW(unsigned long value) volatile {
+          raw = (raw & ~(0x7 << 29)) | ((value << 29) & (0x7 << 29));
+        }
+        /**
+          Gets Lowest priority flag for mailbox 0
           @param index in range 0..2
           @return value in range 0..1
         */
@@ -339,6 +353,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setTME(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (26 + 1 * (index - 0)))) | ((value << (26 + 1 * (index - 0))) & (0x1 << (26 + 1 * (index - 0))));
+        }
+        /**
+          Gets Lowest priority flag for mailbox 0
+          @return value in range 0..7
+        */
+        __attribute__((always_inline)) unsigned long getTME() volatile {
+          return (raw & (0x7 << 26)) >> 26;
+        }
+        /**
+          Sets Lowest priority flag for mailbox 0
+          @param value in range 0..7
+        */
+        __attribute__((always_inline)) unsigned long setTME(unsigned long value) volatile {
+          raw = (raw & ~(0x7 << 26)) | ((value << 26) & (0x7 << 26));
         }
         /**
           Gets ABRQ0
@@ -357,6 +385,20 @@ namespace target {
           raw = (raw & ~(0x1 << (7 + 8 * (index - 0)))) | ((value << (7 + 8 * (index - 0))) & (0x1 << (7 + 8 * (index - 0))));
         }
         /**
+          Gets ABRQ0
+          @return value in range 0..7
+        */
+        __attribute__((always_inline)) unsigned long getABRQ() volatile {
+          return (raw & (0x7 << 7)) >> 7;
+        }
+        /**
+          Sets ABRQ0
+          @param value in range 0..7
+        */
+        __attribute__((always_inline)) unsigned long setABRQ(unsigned long value) volatile {
+          raw = (raw & ~(0x7 << 7)) | ((value << 7) & (0x7 << 7));
+        }
+        /**
           Gets TERR0
           @param index in range 0..2
           @return value in range 0..1
@@ -371,6 +413,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setTERR(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (3 + 8 * (index - 0)))) | ((value << (3 + 8 * (index - 0))) & (0x1 << (3 + 8 * (index - 0))));
+        }
+        /**
+          Gets TERR0
+          @return value in range 0..7
+        */
+        __attribute__((always_inline)) unsigned long getTERR() volatile {
+          return (raw & (0x7 << 3)) >> 3;
+        }
+        /**
+          Sets TERR0
+          @param value in range 0..7
+        */
+        __attribute__((always_inline)) unsigned long setTERR(unsigned long value) volatile {
+          raw = (raw & ~(0x7 << 3)) | ((value << 3) & (0x7 << 3));
         }
         /**
           Gets ALST0
@@ -389,6 +445,20 @@ namespace target {
           raw = (raw & ~(0x1 << (2 + 8 * (index - 0)))) | ((value << (2 + 8 * (index - 0))) & (0x1 << (2 + 8 * (index - 0))));
         }
         /**
+          Gets ALST0
+          @return value in range 0..7
+        */
+        __attribute__((always_inline)) unsigned long getALST() volatile {
+          return (raw & (0x7 << 2)) >> 2;
+        }
+        /**
+          Sets ALST0
+          @param value in range 0..7
+        */
+        __attribute__((always_inline)) unsigned long setALST(unsigned long value) volatile {
+          raw = (raw & ~(0x7 << 2)) | ((value << 2) & (0x7 << 2));
+        }
+        /**
           Gets TXOK0
           @param index in range 0..2
           @return value in range 0..1
@@ -405,6 +475,20 @@ namespace target {
           raw = (raw & ~(0x1 << (1 + 8 * (index - 0)))) | ((value << (1 + 8 * (index - 0))) & (0x1 << (1 + 8 * (index - 0))));
         }
         /**
+          Gets TXOK0
+          @return value in range 0..7
+        */
+        __attribute__((always_inline)) unsigned long getTXOK() volatile {
+          return (raw & (0x7 << 1)) >> 1;
+        }
+        /**
+          Sets TXOK0
+          @param value in range 0..7
+        */
+        __attribute__((always_inline)) unsigned long setTXOK(unsigned long value) volatile {
+          raw = (raw & ~(0x7 << 1)) | ((value << 1) & (0x7 << 1));
+        }
+        /**
           Gets RQCP0
           @param index in range 0..2
           @return value in range 0..1
@@ -419,6 +503,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setRQCP(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 8 * (index - 0)))) | ((value << (0 + 8 * (index - 0))) & (0x1 << (0 + 8 * (index - 0))));
+        }
+        /**
+          Gets RQCP0
+          @return value in range 0..7
+        */
+        __attribute__((always_inline)) unsigned long getRQCP() volatile {
+          return (raw & (0x7 << 0)) >> 0;
+        }
+        /**
+          Sets RQCP0
+          @param value in range 0..7
+        */
+        __attribute__((always_inline)) unsigned long setRQCP(unsigned long value) volatile {
+          raw = (raw & ~(0x7 << 0)) | ((value << 0) & (0x7 << 0));
         }
         /**
           Gets CODE
@@ -605,6 +703,20 @@ namespace target {
           raw = (raw & ~(0x1 << (3 + 3 * (index - 0)))) | ((value << (3 + 3 * (index - 0))) & (0x1 << (3 + 3 * (index - 0))));
         }
         /**
+          Gets FOVIE0
+          @return value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long getFOVIE() volatile {
+          return (raw & (0x3 << 3)) >> 3;
+        }
+        /**
+          Sets FOVIE0
+          @param value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long setFOVIE(unsigned long value) volatile {
+          raw = (raw & ~(0x3 << 3)) | ((value << 3) & (0x3 << 3));
+        }
+        /**
           Gets FFIE0
           @param index in range 0..1
           @return value in range 0..1
@@ -621,6 +733,20 @@ namespace target {
           raw = (raw & ~(0x1 << (2 + 3 * (index - 0)))) | ((value << (2 + 3 * (index - 0))) & (0x1 << (2 + 3 * (index - 0))));
         }
         /**
+          Gets FFIE0
+          @return value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long getFFIE() volatile {
+          return (raw & (0x3 << 2)) >> 2;
+        }
+        /**
+          Sets FFIE0
+          @param value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long setFFIE(unsigned long value) volatile {
+          raw = (raw & ~(0x3 << 2)) | ((value << 2) & (0x3 << 2));
+        }
+        /**
           Gets FMPIE0
           @param index in range 0..1
           @return value in range 0..1
@@ -635,6 +761,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setFMPIE(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (1 + 3 * (index - 0)))) | ((value << (1 + 3 * (index - 0))) & (0x1 << (1 + 3 * (index - 0))));
+        }
+        /**
+          Gets FMPIE0
+          @return value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long getFMPIE() volatile {
+          return (raw & (0x3 << 1)) >> 1;
+        }
+        /**
+          Sets FMPIE0
+          @param value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long setFMPIE(unsigned long value) volatile {
+          raw = (raw & ~(0x3 << 1)) | ((value << 1) & (0x3 << 1));
         }
         /**
           Gets SLKIE
@@ -877,6 +1017,20 @@ namespace target {
           raw = (raw & ~(0xF << (16 + 4 * (index - 1)))) | ((value << (16 + 4 * (index - 1))) & (0xF << (16 + 4 * (index - 1))));
         }
         /**
+          Gets TS1
+          @return value in range 0..255
+        */
+        __attribute__((always_inline)) unsigned long getTS() volatile {
+          return (raw & (0xFF << 16)) >> 16;
+        }
+        /**
+          Sets TS1
+          @param value in range 0..255
+        */
+        __attribute__((always_inline)) unsigned long setTS(unsigned long value) volatile {
+          raw = (raw & ~(0xFF << 16)) | ((value << 16) & (0xFF << 16));
+        }
+        /**
           Gets SILM
           @return value in range 0..1
         */
@@ -1102,6 +1256,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setDATA(int index, unsigned long value) volatile {
           raw = (raw & ~(0xFF << (0 + 8 * (index - 0)))) | ((value << (0 + 8 * (index - 0))) & (0xFF << (0 + 8 * (index - 0))));
         }
+        /**
+          Gets DATA0
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getDATA() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets DATA0
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setDATA(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -1131,6 +1299,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setDATA(int index, unsigned long value) volatile {
           raw = (raw & ~(0xFF << (0 + 8 * (index - 4)))) | ((value << (0 + 8 * (index - 4))) & (0xFF << (0 + 8 * (index - 4))));
+        }
+        /**
+          Gets DATA4
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getDATA() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets DATA4
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setDATA(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
         }
       };
       
@@ -1302,6 +1484,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setDATA(int index, unsigned long value) volatile {
           raw = (raw & ~(0xFF << (0 + 8 * (index - 0)))) | ((value << (0 + 8 * (index - 0))) & (0xFF << (0 + 8 * (index - 0))));
         }
+        /**
+          Gets DATA0
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getDATA() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets DATA0
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setDATA(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -1331,6 +1527,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setDATA(int index, unsigned long value) volatile {
           raw = (raw & ~(0xFF << (0 + 8 * (index - 4)))) | ((value << (0 + 8 * (index - 4))) & (0xFF << (0 + 8 * (index - 4))));
+        }
+        /**
+          Gets DATA4
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getDATA() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets DATA4
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setDATA(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
         }
       };
       
@@ -1502,6 +1712,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setDATA(int index, unsigned long value) volatile {
           raw = (raw & ~(0xFF << (0 + 8 * (index - 0)))) | ((value << (0 + 8 * (index - 0))) & (0xFF << (0 + 8 * (index - 0))));
         }
+        /**
+          Gets DATA0
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getDATA() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets DATA0
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setDATA(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -1531,6 +1755,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setDATA(int index, unsigned long value) volatile {
           raw = (raw & ~(0xFF << (0 + 8 * (index - 4)))) | ((value << (0 + 8 * (index - 4))) & (0xFF << (0 + 8 * (index - 4))));
+        }
+        /**
+          Gets DATA4
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getDATA() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets DATA4
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setDATA(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
         }
       };
       
@@ -1688,6 +1926,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setDATA(int index, unsigned long value) volatile {
           raw = (raw & ~(0xFF << (0 + 8 * (index - 0)))) | ((value << (0 + 8 * (index - 0))) & (0xFF << (0 + 8 * (index - 0))));
         }
+        /**
+          Gets DATA0
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getDATA() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets DATA0
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setDATA(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -1717,6 +1969,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setDATA(int index, unsigned long value) volatile {
           raw = (raw & ~(0xFF << (0 + 8 * (index - 4)))) | ((value << (0 + 8 * (index - 4))) & (0xFF << (0 + 8 * (index - 4))));
+        }
+        /**
+          Gets DATA4
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getDATA() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets DATA4
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setDATA(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
         }
       };
       
@@ -1874,6 +2140,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setDATA(int index, unsigned long value) volatile {
           raw = (raw & ~(0xFF << (0 + 8 * (index - 0)))) | ((value << (0 + 8 * (index - 0))) & (0xFF << (0 + 8 * (index - 0))));
         }
+        /**
+          Gets DATA0
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getDATA() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets DATA0
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setDATA(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -1903,6 +2183,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setDATA(int index, unsigned long value) volatile {
           raw = (raw & ~(0xFF << (0 + 8 * (index - 4)))) | ((value << (0 + 8 * (index - 4))) & (0xFF << (0 + 8 * (index - 4))));
+        }
+        /**
+          Gets DATA4
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getDATA() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets DATA4
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setDATA(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
         }
       };
       
@@ -1976,6 +2270,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setFBM(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
+        /**
+          Gets Filter mode
+          @return value in range 0..268435455
+        */
+        __attribute__((always_inline)) unsigned long getFBM() volatile {
+          return (raw & (0xFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter mode
+          @param value in range 0..268435455
+        */
+        __attribute__((always_inline)) unsigned long setFBM(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFF << 0));
+        }
       };
       
       /**
@@ -2005,6 +2313,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setFSC(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+        }
+        /**
+          Gets Filter scale configuration
+          @return value in range 0..268435455
+        */
+        __attribute__((always_inline)) unsigned long getFSC() volatile {
+          return (raw & (0xFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter scale configuration
+          @param value in range 0..268435455
+        */
+        __attribute__((always_inline)) unsigned long setFSC(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFF << 0));
         }
       };
       
@@ -2036,6 +2358,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setFFA(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
+        /**
+          Gets Filter FIFO assignment for filter 0
+          @return value in range 0..268435455
+        */
+        __attribute__((always_inline)) unsigned long getFFA() volatile {
+          return (raw & (0xFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter FIFO assignment for filter 0
+          @param value in range 0..268435455
+        */
+        __attribute__((always_inline)) unsigned long setFFA(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFF << 0));
+        }
       };
       
       /**
@@ -2065,6 +2401,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setFACT(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+        }
+        /**
+          Gets Filter active
+          @return value in range 0..268435455
+        */
+        __attribute__((always_inline)) unsigned long getFACT() volatile {
+          return (raw & (0xFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter active
+          @param value in range 0..268435455
+        */
+        __attribute__((always_inline)) unsigned long setFACT(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFF << 0));
         }
       };
       
@@ -2096,6 +2446,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -2125,6 +2489,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+        }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
         }
       };
       
@@ -2156,6 +2534,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -2185,6 +2577,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+        }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
         }
       };
       
@@ -2216,6 +2622,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -2245,6 +2665,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+        }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
         }
       };
       
@@ -2276,6 +2710,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -2305,6 +2753,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+        }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
         }
       };
       
@@ -2336,6 +2798,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -2365,6 +2841,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+        }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
         }
       };
       
@@ -2396,6 +2886,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -2425,6 +2929,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+        }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
         }
       };
       
@@ -2456,6 +2974,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -2485,6 +3017,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+        }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
         }
       };
       
@@ -2516,6 +3062,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -2545,6 +3105,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+        }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
         }
       };
       
@@ -2576,6 +3150,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -2605,6 +3193,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+        }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
         }
       };
       
@@ -2636,6 +3238,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -2665,6 +3281,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+        }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
         }
       };
       
@@ -2696,6 +3326,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -2725,6 +3369,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+        }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
         }
       };
       
@@ -2756,6 +3414,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -2785,6 +3457,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+        }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
         }
       };
       
@@ -2816,6 +3502,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -2845,6 +3545,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+        }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
         }
       };
       
@@ -2876,6 +3590,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -2905,6 +3633,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+        }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
         }
       };
       
@@ -2936,6 +3678,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -2965,6 +3721,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+        }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
         }
       };
       
@@ -2996,6 +3766,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -3025,6 +3809,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+        }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
         }
       };
       
@@ -3056,6 +3854,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -3085,6 +3897,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+        }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
         }
       };
       
@@ -3116,6 +3942,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -3145,6 +3985,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+        }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
         }
       };
       
@@ -3176,6 +4030,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -3205,6 +4073,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+        }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
         }
       };
       
@@ -3236,6 +4118,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -3265,6 +4161,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+        }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
         }
       };
       
@@ -3296,6 +4206,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -3325,6 +4249,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+        }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
         }
       };
       
@@ -3356,6 +4294,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -3385,6 +4337,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+        }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
         }
       };
       
@@ -3416,6 +4382,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -3445,6 +4425,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+        }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
         }
       };
       
@@ -3476,6 +4470,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -3505,6 +4513,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+        }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
         }
       };
       
@@ -3536,6 +4558,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -3565,6 +4601,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+        }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
         }
       };
       
@@ -3596,6 +4646,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -3625,6 +4689,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+        }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
         }
       };
       
@@ -3656,6 +4734,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -3685,6 +4777,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+        }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
         }
       };
       
@@ -3716,6 +4822,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        }
       };
       
       /**
@@ -3745,6 +4865,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setFB(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
+        }
+        /**
+          Gets Filter bits
+          @return value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long getFB() volatile {
+          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        }
+        /**
+          Sets Filter bits
+          @param value in range 0..4294967295
+        */
+        __attribute__((always_inline)) unsigned long setFB(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
         }
       };
     };

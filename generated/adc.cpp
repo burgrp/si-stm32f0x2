@@ -646,6 +646,20 @@ namespace target {
         __attribute__((always_inline)) unsigned long setCHSEL(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
+        /**
+          Gets Channel-x selection
+          @return value in range 0..524287
+        */
+        __attribute__((always_inline)) unsigned long getCHSEL() volatile {
+          return (raw & (0x7FFFF << 0)) >> 0;
+        }
+        /**
+          Sets Channel-x selection
+          @param value in range 0..524287
+        */
+        __attribute__((always_inline)) unsigned long setCHSEL(unsigned long value) volatile {
+          raw = (raw & ~(0x7FFFF << 0)) | ((value << 0) & (0x7FFFF << 0));
+        }
       };
       
       /**

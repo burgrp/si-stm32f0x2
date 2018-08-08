@@ -409,6 +409,20 @@ namespace target {
           raw = (raw & ~(0x1 << (11 + 1 * (index - 0)))) | ((value << (11 + 1 * (index - 0))) & (0x1 << (11 + 1 * (index - 0))));
         }
         /**
+          Gets nBOOT0
+          @return value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long getnBOOT() volatile {
+          return (raw & (0x3 << 11)) >> 11;
+        }
+        /**
+          Sets nBOOT0
+          @param value in range 0..3
+        */
+        __attribute__((always_inline)) unsigned long setnBOOT(unsigned long value) volatile {
+          raw = (raw & ~(0x3 << 11)) | ((value << 11) & (0x3 << 11));
+        }
+        /**
           Gets Data0
           @param index in range 0..1
           @return value in range 0..255
@@ -423,6 +437,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setData(int index, unsigned long value) volatile {
           raw = (raw & ~(0xFF << (16 + 8 * (index - 0)))) | ((value << (16 + 8 * (index - 0))) & (0xFF << (16 + 8 * (index - 0))));
+        }
+        /**
+          Gets Data0
+          @return value in range 0..65535
+        */
+        __attribute__((always_inline)) unsigned long getData() volatile {
+          return (raw & (0xFFFF << 16)) >> 16;
+        }
+        /**
+          Sets Data0
+          @param value in range 0..65535
+        */
+        __attribute__((always_inline)) unsigned long setData(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFF << 16)) | ((value << 16) & (0xFFFF << 16));
         }
         /**
           Gets Option byte error
