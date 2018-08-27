@@ -393,36 +393,6 @@ namespace target {
           return raw;
         }
         /**
-          Gets nBOOT0
-          @param index in range 0..1
-          @return value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long getnBOOT(int index) volatile {
-          return (raw & (0x1 << (11 + 1 * (index - 0)))) >> (11 + 1 * (index - 0));
-        }
-        /**
-          Sets nBOOT0
-          @param index in range 0..1
-          @param value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long setnBOOT(int index, unsigned long value) volatile {
-          raw = (raw & ~(0x1 << (11 + 1 * (index - 0)))) | ((value << (11 + 1 * (index - 0))) & (0x1 << (11 + 1 * (index - 0))));
-        }
-        /**
-          Gets nBOOT0
-          @return value in range 0..3
-        */
-        __attribute__((always_inline)) unsigned long getnBOOT() volatile {
-          return (raw & (0x3 << 11)) >> 11;
-        }
-        /**
-          Sets nBOOT0
-          @param value in range 0..3
-        */
-        __attribute__((always_inline)) unsigned long setnBOOT(unsigned long value) volatile {
-          raw = (raw & ~(0x3 << 11)) | ((value << 11) & (0x3 << 11));
-        }
-        /**
           Gets Data0
           @param index in range 0..1
           @return value in range 0..255
@@ -523,6 +493,20 @@ namespace target {
           raw = (raw & ~(0x1 << 10)) | ((value << 10) & (0x1 << 10));
         }
         /**
+          Gets BOOT1
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getnBOOT1() volatile {
+          return (raw & (0x1 << 12)) >> 12;
+        }
+        /**
+          Sets BOOT1
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setnBOOT1(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 12)) | ((value << 12) & (0x1 << 12));
+        }
+        /**
           Gets VDDA_MONITOR
           @return value in range 0..1
         */
@@ -540,29 +524,15 @@ namespace target {
           Gets RAM_PARITY_CHECK
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getRAM_PARITY_CHECK() volatile {
+        __attribute__((always_inline)) unsigned long getRAM_PARITY_CHECK_() volatile {
           return (raw & (0x1 << 14)) >> 14;
         }
         /**
           Sets RAM_PARITY_CHECK
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setRAM_PARITY_CHECK(unsigned long value) volatile {
+        __attribute__((always_inline)) unsigned long setRAM_PARITY_CHECK_(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 14)) | ((value << 14) & (0x1 << 14));
-        }
-        /**
-          Gets BOOT_SEL
-          @return value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long getBOOT_SEL() volatile {
-          return (raw & (0x1 << 15)) >> 15;
-        }
-        /**
-          Sets BOOT_SEL
-          @param value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long setBOOT_SEL(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 15)) | ((value << 15) & (0x1 << 15));
         }
       };
       

@@ -1195,28 +1195,28 @@ namespace target {
           return raw;
         }
         /**
-          Gets Increase frequency of RTC by 488.5 ppm
+          Gets Use an 8-second calibration cycle period
           @return value in range 0..1
         */
         __attribute__((always_inline)) unsigned long getCALP() volatile {
           return (raw & (0x1 << 15)) >> 15;
         }
         /**
-          Sets Increase frequency of RTC by 488.5 ppm
+          Sets Use an 8-second calibration cycle period
           @param value in range 0..1
         */
         __attribute__((always_inline)) unsigned long setCALP(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 15)) | ((value << 15) & (0x1 << 15));
         }
         /**
-          Gets Use an 8-second calibration cycle period
+          Gets Use a 16-second calibration cycle period
           @return value in range 0..1
         */
         __attribute__((always_inline)) unsigned long getCALW8() volatile {
           return (raw & (0x1 << 14)) >> 14;
         }
         /**
-          Sets Use an 8-second calibration cycle period
+          Sets Use a 16-second calibration cycle period
           @param value in range 0..1
         */
         __attribute__((always_inline)) unsigned long setCALW8(unsigned long value) volatile {

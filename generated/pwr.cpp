@@ -29,34 +29,6 @@ namespace target {
           raw = (raw & ~(0x1 << 8)) | ((value << 8) & (0x1 << 8));
         }
         /**
-          Gets PVD level selection
-          @return value in range 0..7
-        */
-        __attribute__((always_inline)) unsigned long getPLS() volatile {
-          return (raw & (0x7 << 5)) >> 5;
-        }
-        /**
-          Sets PVD level selection
-          @param value in range 0..7
-        */
-        __attribute__((always_inline)) unsigned long setPLS(unsigned long value) volatile {
-          raw = (raw & ~(0x7 << 5)) | ((value << 5) & (0x7 << 5));
-        }
-        /**
-          Gets Power voltage detector enable
-          @return value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long getPVDE() volatile {
-          return (raw & (0x1 << 4)) >> 4;
-        }
-        /**
-          Sets Power voltage detector enable
-          @param value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long setPVDE(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 4)) | ((value << 4) & (0x1 << 4));
-        }
-        /**
           Gets Clear standby flag
           @return value in range 0..1
         */
@@ -128,7 +100,7 @@ namespace target {
         }
         /**
           Gets Enable WKUP pin 1
-          @param index in range 1..8
+          @param index in range 1..7
           @return value in range 0..1
         */
         __attribute__((always_inline)) unsigned long getEWUP(int index) volatile {
@@ -136,7 +108,7 @@ namespace target {
         }
         /**
           Sets Enable WKUP pin 1
-          @param index in range 1..8
+          @param index in range 1..7
           @param value in range 0..1
         */
         __attribute__((always_inline)) unsigned long setEWUP(int index, unsigned long value) volatile {
@@ -144,17 +116,17 @@ namespace target {
         }
         /**
           Gets Enable WKUP pin 1
-          @return value in range 0..255
+          @return value in range 0..127
         */
         __attribute__((always_inline)) unsigned long getEWUP() volatile {
-          return (raw & (0xFF << 8)) >> 8;
+          return (raw & (0x7F << 8)) >> 8;
         }
         /**
           Sets Enable WKUP pin 1
-          @param value in range 0..255
+          @param value in range 0..127
         */
         __attribute__((always_inline)) unsigned long setEWUP(unsigned long value) volatile {
-          raw = (raw & ~(0xFF << 8)) | ((value << 8) & (0xFF << 8));
+          raw = (raw & ~(0x7F << 8)) | ((value << 8) & (0x7F << 8));
         }
         /**
           Gets Wakeup flag
@@ -183,34 +155,6 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setSBF(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 1)) | ((value << 1) & (0x1 << 1));
-        }
-        /**
-          Gets PVD output
-          @return value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long getPVDO() volatile {
-          return (raw & (0x1 << 2)) >> 2;
-        }
-        /**
-          Sets PVD output
-          @param value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long setPVDO(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 2)) | ((value << 2) & (0x1 << 2));
-        }
-        /**
-          Gets VREFINT reference voltage ready
-          @return value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long getVREFINTRDY() volatile {
-          return (raw & (0x1 << 3)) >> 3;
-        }
-        /**
-          Sets VREFINT reference voltage ready
-          @param value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long setVREFINTRDY(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 3)) | ((value << 3) & (0x1 << 3));
         }
       };
     };
