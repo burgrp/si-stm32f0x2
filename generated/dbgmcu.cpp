@@ -113,6 +113,20 @@ namespace target {
           return raw;
         }
         /**
+          Gets TIM2 counter stopped when core is halted
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getDBG_TIM2_STOP() volatile {
+          return (raw & (0x1 << 0)) >> 0;
+        }
+        /**
+          Sets TIM2 counter stopped when core is halted
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setDBG_TIM2_STOP(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 0)) | ((value << 0) & (0x1 << 0));
+        }
+        /**
           Gets TIM3 counter stopped when core is halted
           @return value in range 0..1
         */
@@ -169,6 +183,20 @@ namespace target {
           raw = (raw & ~(0x1 << 8)) | ((value << 8) & (0x1 << 8));
         }
         /**
+          Gets Debug RTC stopped when core is halted
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getDBG_RTC_STOP() volatile {
+          return (raw & (0x1 << 10)) >> 10;
+        }
+        /**
+          Sets Debug RTC stopped when core is halted
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setDBG_RTC_STOP(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 10)) | ((value << 10) & (0x1 << 10));
+        }
+        /**
           Gets Debug window watchdog stopped when core is halted
           @return value in range 0..1
         */
@@ -209,6 +237,20 @@ namespace target {
         */
         __attribute__((always_inline)) unsigned long setDBG_I2C1_SMBUS_TIMEOUT(unsigned long value) volatile {
           raw = (raw & ~(0x1 << 21)) | ((value << 21) & (0x1 << 21));
+        }
+        /**
+          Gets CAN stopped when core is halted
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getDBG_CAN_STOP() volatile {
+          return (raw & (0x1 << 25)) >> 25;
+        }
+        /**
+          Sets CAN stopped when core is halted
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setDBG_CAN_STOP(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 25)) | ((value << 25) & (0x1 << 25));
         }
       };
       
