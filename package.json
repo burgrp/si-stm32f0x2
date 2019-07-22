@@ -34,7 +34,8 @@
       "generated/dbgmcu.cpp",
       "generated/usb.cpp",
       "generated/crs.cpp",
-      "generated/can.cpp"
+      "generated/can.cpp",
+      "generated/systick.cpp"
     ],
     "symbols": {
       "_ZN6target3CRCE": "0x40023000",
@@ -70,7 +71,8 @@
       "_ZN6target6DBGMCUE": "0x40015800",
       "_ZN6target3USBE": "0x40005C00",
       "_ZN6target3CRSE": "0x40006C00",
-      "_ZN6target3CANE": "0x40006400"
+      "_ZN6target3CANE": "0x40006400",
+      "_ZN6target7SYSTICKE": "0xE000E010"
     },
     "interrupts": {
       "0": "WWDG",
