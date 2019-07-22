@@ -235,34 +235,34 @@ namespace target {
           return raw;
         }
         /**
-          Gets Pending interrupt flag on line 0
-          @param index in range 0..31
+          Gets Pending bit 0
+          @param index in range 0..19
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getPIF(int index) volatile {
+        __attribute__((always_inline)) unsigned long getPR(int index) volatile {
           return (raw & (0x1 << (0 + 1 * (index - 0)))) >> (0 + 1 * (index - 0));
         }
         /**
-          Sets Pending interrupt flag on line 0
-          @param index in range 0..31
+          Sets Pending bit 0
+          @param index in range 0..19
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setPIF(int index, unsigned long value) volatile {
+        __attribute__((always_inline)) unsigned long setPR(int index, unsigned long value) volatile {
           raw = (raw & ~(0x1 << (0 + 1 * (index - 0)))) | ((value << (0 + 1 * (index - 0))) & (0x1 << (0 + 1 * (index - 0))));
         }
         /**
-          Gets Pending interrupt flag on line 0
-          @return value in range 0..4294967295
+          Gets Pending bit 0
+          @return value in range 0..1048575
         */
-        __attribute__((always_inline)) unsigned long getPIF() volatile {
-          return (raw & (0xFFFFFFFF << 0)) >> 0;
+        __attribute__((always_inline)) unsigned long getPR() volatile {
+          return (raw & (0xFFFFF << 0)) >> 0;
         }
         /**
-          Sets Pending interrupt flag on line 0
-          @param value in range 0..4294967295
+          Sets Pending bit 0
+          @param value in range 0..1048575
         */
-        __attribute__((always_inline)) unsigned long setPIF(unsigned long value) volatile {
-          raw = (raw & ~(0xFFFFFFFF << 0)) | ((value << 0) & (0xFFFFFFFF << 0));
+        __attribute__((always_inline)) unsigned long setPR(unsigned long value) volatile {
+          raw = (raw & ~(0xFFFFF << 0)) | ((value << 0) & (0xFFFFF << 0));
         }
       };
     };

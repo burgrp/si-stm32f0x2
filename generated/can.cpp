@@ -989,7 +989,7 @@ namespace target {
       };
       
       /**
-        CAN BTR
+        CAN_BTR
       */
       class CAN_BTR {
         volatile unsigned long raw;
@@ -4936,7 +4936,7 @@ namespace target {
         struct {
           volatile char _space_CAN_BTR[28];
           /**
-            CAN BTR
+            CAN_BTR
           */
           volatile reg::CAN_BTR CAN_BTR;
         };

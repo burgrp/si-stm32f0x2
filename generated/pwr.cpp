@@ -15,6 +15,20 @@ namespace target {
           return raw;
         }
         /**
+          Gets Flash power down in Stop mode
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getFPDS() volatile {
+          return (raw & (0x1 << 9)) >> 9;
+        }
+        /**
+          Sets Flash power down in Stop mode
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setFPDS(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 9)) | ((value << 9) & (0x1 << 9));
+        }
+        /**
           Gets Disable backup domain write protection
           @return value in range 0..1
         */
@@ -127,62 +141,46 @@ namespace target {
           return raw;
         }
         /**
-          Gets Enable WKUP pin 1
-          @param index in range 1..8
+          Gets Backup regulator enable
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getEWUP(int index) volatile {
-          return (raw & (0x1 << (8 + 1 * (index - 1)))) >> (8 + 1 * (index - 1));
+        __attribute__((always_inline)) unsigned long getBRE() volatile {
+          return (raw & (0x1 << 9)) >> 9;
         }
         /**
-          Sets Enable WKUP pin 1
-          @param index in range 1..8
+          Sets Backup regulator enable
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setEWUP(int index, unsigned long value) volatile {
-          raw = (raw & ~(0x1 << (8 + 1 * (index - 1)))) | ((value << (8 + 1 * (index - 1))) & (0x1 << (8 + 1 * (index - 1))));
+        __attribute__((always_inline)) unsigned long setBRE(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 9)) | ((value << 9) & (0x1 << 9));
         }
         /**
-          Gets Enable WKUP pin 1
-          @return value in range 0..255
+          Gets Enable WKUP pin
+          @return value in range 0..1
         */
         __attribute__((always_inline)) unsigned long getEWUP() volatile {
-          return (raw & (0xFF << 8)) >> 8;
+          return (raw & (0x1 << 8)) >> 8;
         }
         /**
-          Sets Enable WKUP pin 1
-          @param value in range 0..255
+          Sets Enable WKUP pin
+          @param value in range 0..1
         */
         __attribute__((always_inline)) unsigned long setEWUP(unsigned long value) volatile {
-          raw = (raw & ~(0xFF << 8)) | ((value << 8) & (0xFF << 8));
+          raw = (raw & ~(0x1 << 8)) | ((value << 8) & (0x1 << 8));
         }
         /**
-          Gets Wakeup flag
+          Gets Backup regulator ready
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getWUF() volatile {
-          return (raw & (0x1 << 0)) >> 0;
+        __attribute__((always_inline)) unsigned long getBRR() volatile {
+          return (raw & (0x1 << 3)) >> 3;
         }
         /**
-          Sets Wakeup flag
+          Sets Backup regulator ready
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setWUF(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 0)) | ((value << 0) & (0x1 << 0));
-        }
-        /**
-          Gets Standby flag
-          @return value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long getSBF() volatile {
-          return (raw & (0x1 << 1)) >> 1;
-        }
-        /**
-          Sets Standby flag
-          @param value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long setSBF(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 1)) | ((value << 1) & (0x1 << 1));
+        __attribute__((always_inline)) unsigned long setBRR(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 3)) | ((value << 3) & (0x1 << 3));
         }
         /**
           Gets PVD output
@@ -199,18 +197,32 @@ namespace target {
           raw = (raw & ~(0x1 << 2)) | ((value << 2) & (0x1 << 2));
         }
         /**
-          Gets VREFINT reference voltage ready
+          Gets Standby flag
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getVREFINTRDY() volatile {
-          return (raw & (0x1 << 3)) >> 3;
+        __attribute__((always_inline)) unsigned long getSBF() volatile {
+          return (raw & (0x1 << 1)) >> 1;
         }
         /**
-          Sets VREFINT reference voltage ready
+          Sets Standby flag
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setVREFINTRDY(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 3)) | ((value << 3) & (0x1 << 3));
+        __attribute__((always_inline)) unsigned long setSBF(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 1)) | ((value << 1) & (0x1 << 1));
+        }
+        /**
+          Gets Wakeup flag
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getWUF() volatile {
+          return (raw & (0x1 << 0)) >> 0;
+        }
+        /**
+          Sets Wakeup flag
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setWUF(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 0)) | ((value << 0) & (0x1 << 0));
         }
       };
     };

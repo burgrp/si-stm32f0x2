@@ -393,36 +393,6 @@ namespace target {
           return raw;
         }
         /**
-          Gets nBOOT0
-          @param index in range 0..1
-          @return value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long getnBOOT(int index) volatile {
-          return (raw & (0x1 << (11 + 1 * (index - 0)))) >> (11 + 1 * (index - 0));
-        }
-        /**
-          Sets nBOOT0
-          @param index in range 0..1
-          @param value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long setnBOOT(int index, unsigned long value) volatile {
-          raw = (raw & ~(0x1 << (11 + 1 * (index - 0)))) | ((value << (11 + 1 * (index - 0))) & (0x1 << (11 + 1 * (index - 0))));
-        }
-        /**
-          Gets nBOOT0
-          @return value in range 0..3
-        */
-        __attribute__((always_inline)) unsigned long getnBOOT() volatile {
-          return (raw & (0x3 << 11)) >> 11;
-        }
-        /**
-          Sets nBOOT0
-          @param value in range 0..3
-        */
-        __attribute__((always_inline)) unsigned long setnBOOT(unsigned long value) volatile {
-          raw = (raw & ~(0x3 << 11)) | ((value << 11) & (0x3 << 11));
-        }
-        /**
           Gets Data0
           @param index in range 0..1
           @return value in range 0..255
@@ -453,60 +423,32 @@ namespace target {
           raw = (raw & ~(0xFFFF << 16)) | ((value << 16) & (0xFFFF << 16));
         }
         /**
-          Gets Option byte error
+          Gets VDDA_MONITOR
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getOPTERR() volatile {
-          return (raw & (0x1 << 0)) >> 0;
+        __attribute__((always_inline)) unsigned long getVDDA_MONITOR() volatile {
+          return (raw & (0x1 << 13)) >> 13;
         }
         /**
-          Sets Option byte error
+          Sets VDDA_MONITOR
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setOPTERR(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 0)) | ((value << 0) & (0x1 << 0));
+        __attribute__((always_inline)) unsigned long setVDDA_MONITOR(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 13)) | ((value << 13) & (0x1 << 13));
         }
         /**
-          Gets Read protection level status
-          @return value in range 0..3
-        */
-        __attribute__((always_inline)) unsigned long getRDPRT() volatile {
-          return (raw & (0x3 << 1)) >> 1;
-        }
-        /**
-          Sets Read protection level status
-          @param value in range 0..3
-        */
-        __attribute__((always_inline)) unsigned long setRDPRT(unsigned long value) volatile {
-          raw = (raw & ~(0x3 << 1)) | ((value << 1) & (0x3 << 1));
-        }
-        /**
-          Gets WDG_SW
+          Gets BOOT1
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getWDG_SW() volatile {
-          return (raw & (0x1 << 8)) >> 8;
+        __attribute__((always_inline)) unsigned long getBOOT1() volatile {
+          return (raw & (0x1 << 12)) >> 12;
         }
         /**
-          Sets WDG_SW
+          Sets BOOT1
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setWDG_SW(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 8)) | ((value << 8) & (0x1 << 8));
-        }
-        /**
-          Gets nRST_STOP
-          @return value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long getnRST_STOP() volatile {
-          return (raw & (0x1 << 9)) >> 9;
-        }
-        /**
-          Sets nRST_STOP
-          @param value in range 0..1
-        */
-        __attribute__((always_inline)) unsigned long setnRST_STOP(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 9)) | ((value << 9) & (0x1 << 9));
+        __attribute__((always_inline)) unsigned long setBOOT1(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 12)) | ((value << 12) & (0x1 << 12));
         }
         /**
           Gets nRST_STDBY
@@ -523,46 +465,74 @@ namespace target {
           raw = (raw & ~(0x1 << 10)) | ((value << 10) & (0x1 << 10));
         }
         /**
-          Gets VDDA_MONITOR
+          Gets nRST_STOP
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getVDDA_MONITOR() volatile {
-          return (raw & (0x1 << 13)) >> 13;
+        __attribute__((always_inline)) unsigned long getnRST_STOP() volatile {
+          return (raw & (0x1 << 9)) >> 9;
         }
         /**
-          Sets VDDA_MONITOR
+          Sets nRST_STOP
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setVDDA_MONITOR(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 13)) | ((value << 13) & (0x1 << 13));
+        __attribute__((always_inline)) unsigned long setnRST_STOP(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 9)) | ((value << 9) & (0x1 << 9));
         }
         /**
-          Gets RAM_PARITY_CHECK
+          Gets WDG_SW
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getRAM_PARITY_CHECK() volatile {
-          return (raw & (0x1 << 14)) >> 14;
+        __attribute__((always_inline)) unsigned long getWDG_SW() volatile {
+          return (raw & (0x1 << 8)) >> 8;
         }
         /**
-          Sets RAM_PARITY_CHECK
+          Sets WDG_SW
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setRAM_PARITY_CHECK(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 14)) | ((value << 14) & (0x1 << 14));
+        __attribute__((always_inline)) unsigned long setWDG_SW(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 8)) | ((value << 8) & (0x1 << 8));
         }
         /**
-          Gets BOOT_SEL
+          Gets Level 2 protection status
           @return value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long getBOOT_SEL() volatile {
-          return (raw & (0x1 << 15)) >> 15;
+        __attribute__((always_inline)) unsigned long getLEVEL2_PROT() volatile {
+          return (raw & (0x1 << 2)) >> 2;
         }
         /**
-          Sets BOOT_SEL
+          Sets Level 2 protection status
           @param value in range 0..1
         */
-        __attribute__((always_inline)) unsigned long setBOOT_SEL(unsigned long value) volatile {
-          raw = (raw & ~(0x1 << 15)) | ((value << 15) & (0x1 << 15));
+        __attribute__((always_inline)) unsigned long setLEVEL2_PROT(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 2)) | ((value << 2) & (0x1 << 2));
+        }
+        /**
+          Gets Level 1 protection status
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getLEVEL1_PROT() volatile {
+          return (raw & (0x1 << 1)) >> 1;
+        }
+        /**
+          Sets Level 1 protection status
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setLEVEL1_PROT(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 1)) | ((value << 1) & (0x1 << 1));
+        }
+        /**
+          Gets Option byte error
+          @return value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long getOPTERR() volatile {
+          return (raw & (0x1 << 0)) >> 0;
+        }
+        /**
+          Sets Option byte error
+          @param value in range 0..1
+        */
+        __attribute__((always_inline)) unsigned long setOPTERR(unsigned long value) volatile {
+          raw = (raw & ~(0x1 << 0)) | ((value << 0) & (0x1 << 0));
         }
       };
       
